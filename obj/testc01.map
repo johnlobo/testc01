@@ -1,0 +1,250 @@
+ASxxxx Linker V03.00 + NoICE + sdld,  page 1.
+Hexadecimal  [32-Bits]
+
+Area                                    Addr        Size        Decimal Bytes (Attributes)
+--------------------------------        ----        ----        ------- ----- ------------
+.  .ABS.                            00000000    00000000 =           0. bytes (ABS,CON)
+
+      Value  Global                              Global Defined In Module
+      -----  --------------------------------   ------------------------
+     00000000  .__.ABS.                           
+     00000000  l__CABS                         
+     00000000  l__DABS                         
+     00000000  l__GSFINAL                      
+     00000000  l__GSINIT                       
+     00000000  l__INITIALIZED                  
+     00000000  l__INITIALIZER                  
+     00000000  l__g_tablatrans_                
+     00000000  s__CABS                         
+     00000000  s__DABS                         
+     00000000  s__g_tablatrans_                
+     00000000  s__g_tablatrans_0               
+     00000006  l__DATA                         
+     00000100  l__g_tablatrans_0               
+     00000300  s__CODE                         
+     0000079B  l__CSEG                         
+     00000838  l__HOME                         
+     00001897  l__CODE                         
+     00001B97  s__DATA                         
+     00001B9D  s__HOME                         
+     00001B9D  s__INITIALIZED                  
+     000023D5  s__CSEG                         
+     000023D5  s__GSFINAL                      
+     000023D5  s__GSINIT                       
+     00002B70  s__INITIALIZER                  
+
+ASxxxx Linker V03.00 + NoICE + sdld,  page 2.
+Hexadecimal  [32-Bits]
+
+Area                                    Addr        Size        Decimal Bytes (Attributes)
+--------------------------------        ----        ----        ------- ----- ------------
+_CODE                               00000300    00001897 =        6295. bytes (REL,CON)
+
+      Value  Global                              Global Defined In Module
+      -----  --------------------------------   ------------------------
+     00000300  _dummy_cpct_transparentMaskTable   main
+     00000300  _strLength                         text
+     00000316  _swapColors                        text
+     0000032E  _strCopy                           text
+     00000357  _drawText                          text
+     00000766  _g_font_chars                      font_chars
+     00000A5A  _sine                              trig
+     00000AE6  _sine_table                        trig
+     00000B9C  _cosine                            trig
+     00000BE6  _maxi16                            trig
+     00000C0F  _mini16                            trig
+     00000C38  _wait4OneKey                       util
+     00000C47  _cpct_isKeyPressed                 cpct_keyboard
+     00000C47  cpct_isKeyPressed_asm              cpct_keyboard
+     00000C53  _cpct_scanKeyboard_f               cpct_keyboard
+     00000C53  cpct_scanKeyboard_f_asm            cpct_keyboard
+     00000CBD  _cpct_drawSprite                   cpct_sprites
+     00000D62  _abs                               
+     00000D6E  _cpct_keyboardStatusBuffer         cpct_keyboard
+     00000D78  __mulint                           
+     00000D7E  __mul16                            
+     00000D92  _cpct_waitHalts                    cpct_memutils
+     00000DB7  _vsprintf                          sprintf
+     00000DEC  _sprintf                           sprintf
+     00000E21  _cpct_isAnyKeyPressed              cpct_keyboard
+     00000E21  cpct_isAnyKeyPressed_asm           cpct_keyboard
+     00000E2E  _cpct_setVideoMode                 cpct_video
+     00000E3C  _cpct_px2byteM0                    cpct_sprites
+     00000E58  _cpct_drawSolidBox                 cpct_sprites
+     00000F10  __modschar                         
+     00000F1D  __modsint                          
+     00000F29  _cpct_mode_rom_status              cpct_firmware
+     00000F2A  _cpct_drawSpriteMaskedAlignedTab   cpct_sprites
+     00000F65  _cpct_getScreenPtr                 cpct_video
+     00000F85  _cpct_setInterruptHandler          cpct_firmware
+     00000F85  cpct_setInterruptHandler_asm       cpct_firmware
+     00000F96  cpct_safeInterruptHandlerHook      cpct_firmware
+     000010AC  __print_format                     printf_large
+     00001AEE  __divsint                          
+     00001AF7  __divschar                         
+     00001AFE  __div8                             
+     00001B02  __div_signexte                     
+     00001B06  __div16                            
+     00001B2C  __get_remainder                    
+     00001B36  __divuint                          
+     00001B3E  __divuchar                         
+     00001B45  __divu8                            
+     00001B48  __divu16                           
+     00001B77  ___sdcc_call_hl                    
+     00001B78  dc_mode0_ct                        cpct_strings
+ASxxxx Linker V03.00 + NoICE + sdld,  page 3.
+Hexadecimal  [32-Bits]
+
+Area                                    Addr        Size        Decimal Bytes (Attributes)
+--------------------------------        ----        ----        ------- ----- ------------
+_CODE                               00000300    00001897 =        6295. bytes (REL,CON)
+
+      Value  Global                              Global Defined In Module
+      -----  --------------------------------   ------------------------
+     00001B88  _strlen                            
+ASxxxx Linker V03.00 + NoICE + sdld,  page 4.
+Hexadecimal  [32-Bits]
+
+Area                                    Addr        Size        Decimal Bytes (Attributes)
+--------------------------------        ----        ----        ------- ----- ------------
+_DATA                               00001B97    00000006 =           6. bytes (REL,CON)
+
+      Value  Global                              Global Defined In Module
+      -----  --------------------------------   ------------------------
+     00001B97  _pause                             main
+     00001B98  _g_nInterrupt                      main
+     00001B99  _i_time                            main
+ASxxxx Linker V03.00 + NoICE + sdld,  page 5.
+Hexadecimal  [32-Bits]
+
+Area                                    Addr        Size        Decimal Bytes (Attributes)
+--------------------------------        ----        ----        ------- ----- ------------
+_HOME                               00001B9D    00000838 =        2104. bytes (REL,CON)
+
+      Value  Global                              Global Defined In Module
+      -----  --------------------------------   ------------------------
+     00001B9D  ___fsmul                           _fsmul
+     00001F02  ___fs2sint                         _fs2sint
+     00001F52  ___uchar2fs                        _uchar2fs
+     00001F64  __mullong                          _mullong
+     000020CB  ___fs2slong                        _fs2slong
+     00002148  ___fs2ulong                        _fs2ulong
+     000021FA  ___ulong2fs                        _ulong2fs
+     000022DA  ___fslt                            _fslt
+
+ASxxxx Linker V03.00 + NoICE + sdld,  page 6.
+Hexadecimal  [32-Bits]
+
+Area                                    Addr        Size        Decimal Bytes (Attributes)
+--------------------------------        ----        ----        ------- ----- ------------
+_g_tablatrans_0                     00000000    00000100 =         256. bytes (ABS,CON)
+
+      Value  Global                              Global Defined In Module
+      -----  --------------------------------   ------------------------
+     00000200  _g_tablatrans                      main
+
+ASxxxx Linker V03.00 + NoICE + sdld,  page 7.
+Hexadecimal  [32-Bits]
+
+Area                                    Addr        Size        Decimal Bytes (Attributes)
+--------------------------------        ----        ----        ------- ----- ------------
+_CSEG                               000023D5    0000079B =        1947. bytes (REL,CON)
+
+      Value  Global                              Global Defined In Module
+      -----  --------------------------------   ------------------------
+     000023D5  _myInterruptHandler                main
+     00002401  _wp                                main
+     00002409  _eraseCharacter                    main
+     0000244B  _printCharacter                    main
+     00002502  _printWayPoints                    main
+     0000254C  _eraseDebugInfo                    main
+     0000256F  _printDebugInfo                    main
+     0000274B  _getCharacterInput                 main
+     00002817  _motionUpdate                      main
+     0000295E  _updateCharacter                   main
+     00002A6B  _init                              main
+     00002B00  _main                              main
+ASxxxx Linker V03.00 + NoICE + sdld,  page 8.
+
+Files Linked                              [ module(s) ]
+
+obj/main.rel                              [ main ]
+obj/text/text.rel                         [ text ]
+obj/sprites/font_chars.rel                [ font_chars ]
+obj/util/trig.rel                         [ trig ]
+obj/util/util.rel                         [ util ]
+
+
+Libraries Linked                          [ object file ]
+
+/home/cabox/workspace/cpctelera/cpctelera/cpctelera.lib
+                                          [ cpct_isKeyPressed.rel ]
+/home/cabox/workspace/cpctelera/cpctelera/cpctelera.lib
+                                          [ cpct_scanKeyboard_f.rel ]
+/home/cabox/workspace/cpctelera/cpctelera/tools/sdcc-3.6.8-r9946/bin/../share/sdcc/lib/z80/z80.lib
+                                          [ _fsmul.rel ]
+/home/cabox/workspace/cpctelera/cpctelera/cpctelera.lib
+                                          [ cpct_drawSprite_cbindings.rel ]
+/home/cabox/workspace/cpctelera/cpctelera/tools/sdcc-3.6.8-r9946/bin/../share/sdcc/lib/z80/z80.lib
+                                          [ abs.rel ]
+/home/cabox/workspace/cpctelera/cpctelera/cpctelera.lib
+                                          [ keyboard.rel ]
+/home/cabox/workspace/cpctelera/cpctelera/tools/sdcc-3.6.8-r9946/bin/../share/sdcc/lib/z80/z80.lib
+                                          [ mul.rel ]
+/home/cabox/workspace/cpctelera/cpctelera/cpctelera.lib
+                                          [ cpct_waitHalts_cbindings.rel ]
+/home/cabox/workspace/cpctelera/cpctelera/tools/sdcc-3.6.8-r9946/bin/../share/sdcc/lib/z80/z80.lib
+                                          [ sprintf.rel ]
+/home/cabox/workspace/cpctelera/cpctelera/tools/sdcc-3.6.8-r9946/bin/../share/sdcc/lib/z80/z80.lib
+                                          [ _fs2sint.rel ]
+/home/cabox/workspace/cpctelera/cpctelera/cpctelera.lib
+                                          [ cpct_isAnyKeyPressed.rel ]
+/home/cabox/workspace/cpctelera/cpctelera/cpctelera.lib
+                                          [ cpct_setVideoMode_cbindings.rel ]
+/home/cabox/workspace/cpctelera/cpctelera/cpctelera.lib
+                                          [ cpct_px2byteM0_cbindings.rel ]
+/home/cabox/workspace/cpctelera/cpctelera/cpctelera.lib
+                                          [ cpct_drawSolidBox_cbindings.rel ]
+/home/cabox/workspace/cpctelera/cpctelera/tools/sdcc-3.6.8-r9946/bin/../share/sdcc/lib/z80/z80.lib
+                                          [ _uchar2fs.rel ]
+/home/cabox/workspace/cpctelera/cpctelera/tools/sdcc-3.6.8-r9946/bin/../share/sdcc/lib/z80/z80.lib
+                                          [ _mullong.rel ]
+/home/cabox/workspace/cpctelera/cpctelera/tools/sdcc-3.6.8-r9946/bin/../share/sdcc/lib/z80/z80.lib
+                                          [ modsigned.rel ]
+/home/cabox/workspace/cpctelera/cpctelera/cpctelera.lib
+                                          [ cpc_mode_rom_status.rel ]
+/home/cabox/workspace/cpctelera/cpctelera/cpctelera.lib
+                                          [ cpct_drawSpriteMaskedAlignedTabl ]
+/home/cabox/workspace/cpctelera/cpctelera/cpctelera.lib
+                                          [ cpct_getScreenPtr_cbindings.rel ]
+/home/cabox/workspace/cpctelera/cpctelera/cpctelera.lib
+                                          [ cpct_setInterruptHandler.rel ]
+/home/cabox/workspace/cpctelera/cpctelera/tools/sdcc-3.6.8-r9946/bin/../share/sdcc/lib/z80/z80.lib
+                                          [ _fs2slong.rel ]
+/home/cabox/workspace/cpctelera/cpctelera/tools/sdcc-3.6.8-r9946/bin/../share/sdcc/lib/z80/z80.lib
+                                          [ _fs2ulong.rel ]
+/home/cabox/workspace/cpctelera/cpctelera/tools/sdcc-3.6.8-r9946/bin/../share/sdcc/lib/z80/z80.lib
+                                          [ _ulong2fs.rel ]
+/home/cabox/workspace/cpctelera/cpctelera/tools/sdcc-3.6.8-r9946/bin/../share/sdcc/lib/z80/z80.lib
+                                          [ printf_large.rel ]
+/home/cabox/workspace/cpctelera/cpctelera/tools/sdcc-3.6.8-r9946/bin/../share/sdcc/lib/z80/z80.lib
+                                          [ divsigned.rel ]
+/home/cabox/workspace/cpctelera/cpctelera/tools/sdcc-3.6.8-r9946/bin/../share/sdcc/lib/z80/z80.lib
+                                          [ _fslt.rel ]
+/home/cabox/workspace/cpctelera/cpctelera/tools/sdcc-3.6.8-r9946/bin/../share/sdcc/lib/z80/z80.lib
+                                          [ divunsigned.rel ]
+/home/cabox/workspace/cpctelera/cpctelera/tools/sdcc-3.6.8-r9946/bin/../share/sdcc/lib/z80/z80.lib
+                                          [ __sdcc_call_hl.rel ]
+/home/cabox/workspace/cpctelera/cpctelera/cpctelera.lib
+                                          [ cpct_dc_mode0_ct.rel ]
+/home/cabox/workspace/cpctelera/cpctelera/tools/sdcc-3.6.8-r9946/bin/../share/sdcc/lib/z80/z80.lib
+                                          [ strlen.rel ]
+
+ASxxxx Linker V03.00 + NoICE + sdld,  page 9.
+
+User Base Address Definitions
+
+_CODE = 0x0300
+_DATA = 0x0000
+
+
