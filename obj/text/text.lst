@@ -1,6 +1,6 @@
                               1 ;--------------------------------------------------------
                               2 ; File Created by SDCC : free open source ANSI-C Compiler
-                              3 ; Version 3.6.8 #9946 (Linux)
+                              3 ; Version 3.6.8 #9946 (Mac OS X x86_64)
                               4 ;--------------------------------------------------------
                               5 	.module text
                               6 	.optsdcc -mz80
@@ -149,73 +149,73 @@
    006F E5            [11]  149 	push	hl
    0070 FD E1         [14]  150 	pop	iy
    0072 FD 7E 00      [19]  151 	ld	a, 0 (iy)
-   0075 DD 77 D5      [19]  152 	ld	-43 (ix), a
+   0075 DD 77 B1      [19]  152 	ld	-79 (ix), a
                             153 ;src/text/text.c:100: color2 = swapColors[color][1];
    0078 FD E5         [15]  154 	push	iy
    007A E1            [10]  155 	pop	hl
    007B 23            [ 6]  156 	inc	hl
    007C 7E            [ 7]  157 	ld	a, (hl)
-   007D DD 77 D4      [19]  158 	ld	-44 (ix), a
+   007D DD 77 B2      [19]  158 	ld	-78 (ix), a
                             159 ;src/text/text.c:101: color3 = swapColors[color][2];
    0080 FD E5         [15]  160 	push	iy
    0082 E1            [10]  161 	pop	hl
    0083 23            [ 6]  162 	inc	hl
    0084 23            [ 6]  163 	inc	hl
    0085 7E            [ 7]  164 	ld	a, (hl)
-   0086 DD 77 D3      [19]  165 	ld	-45 (ix), a
+   0086 DD 77 B3      [19]  165 	ld	-77 (ix), a
                             166 ;src/text/text.c:102: color4 = swapColors[color][3];
    0089 FD 7E 03      [19]  167 	ld	a, 3 (iy)
-   008C DD 77 D2      [19]  168 	ld	-46 (ix), a
+   008C DD 77 B4      [19]  168 	ld	-76 (ix), a
                             169 ;src/text/text.c:107: character = text[x];
    008F DD 7E 04      [19]  170 	ld	a, 4 (ix)
-   0092 DD 77 DC      [19]  171 	ld	-36 (ix), a
+   0092 DD 77 EF      [19]  171 	ld	-17 (ix), a
    0095 DD 7E 05      [19]  172 	ld	a, 5 (ix)
-   0098 DD 77 DD      [19]  173 	ld	-35 (ix), a
-   009B DD 6E DC      [19]  174 	ld	l,-36 (ix)
-   009E DD 66 DD      [19]  175 	ld	h,-35 (ix)
+   0098 DD 77 F0      [19]  173 	ld	-16 (ix), a
+   009B DD 6E EF      [19]  174 	ld	l,-17 (ix)
+   009E DD 66 F0      [19]  175 	ld	h,-16 (ix)
    00A1 7E            [ 7]  176 	ld	a, (hl)
-   00A2 DD 77 FD      [19]  177 	ld	-3 (ix), a
+   00A2 DD 77 FF      [19]  177 	ld	-1 (ix), a
                             178 ;src/text/text.c:109: while (character != '\0') {
-   00A5 21 01 00      [10]  179 	ld	hl, #0x0001
+   00A5 21 08 00      [10]  179 	ld	hl, #0x0008
    00A8 39            [11]  180 	add	hl, sp
-   00A9 DD 75 E1      [19]  181 	ld	-31 (ix), l
-   00AC DD 74 E2      [19]  182 	ld	-30 (ix), h
-   00AF DD 7E E1      [19]  183 	ld	a, -31 (ix)
-   00B2 DD 77 DA      [19]  184 	ld	-38 (ix), a
-   00B5 DD 7E E2      [19]  185 	ld	a, -30 (ix)
-   00B8 DD 77 DB      [19]  186 	ld	-37 (ix), a
-   00BB DD 7E E1      [19]  187 	ld	a, -31 (ix)
-   00BE DD 77 F9      [19]  188 	ld	-7 (ix), a
-   00C1 DD 7E E2      [19]  189 	ld	a, -30 (ix)
-   00C4 DD 77 FA      [19]  190 	ld	-6 (ix), a
-   00C7 DD 7E E1      [19]  191 	ld	a, -31 (ix)
-   00CA DD 77 E3      [19]  192 	ld	-29 (ix), a
-   00CD DD 7E E2      [19]  193 	ld	a, -30 (ix)
-   00D0 DD 77 E4      [19]  194 	ld	-28 (ix), a
-   00D3 DD 7E E1      [19]  195 	ld	a, -31 (ix)
+   00A9 DD 75 F3      [19]  181 	ld	-13 (ix), l
+   00AC DD 74 F4      [19]  182 	ld	-12 (ix), h
+   00AF DD 7E F3      [19]  183 	ld	a, -13 (ix)
+   00B2 DD 77 F1      [19]  184 	ld	-15 (ix), a
+   00B5 DD 7E F4      [19]  185 	ld	a, -12 (ix)
+   00B8 DD 77 F2      [19]  186 	ld	-14 (ix), a
+   00BB DD 7E F3      [19]  187 	ld	a, -13 (ix)
+   00BE DD 77 ED      [19]  188 	ld	-19 (ix), a
+   00C1 DD 7E F4      [19]  189 	ld	a, -12 (ix)
+   00C4 DD 77 EE      [19]  190 	ld	-18 (ix), a
+   00C7 DD 7E F3      [19]  191 	ld	a, -13 (ix)
+   00CA DD 77 EB      [19]  192 	ld	-21 (ix), a
+   00CD DD 7E F4      [19]  193 	ld	a, -12 (ix)
+   00D0 DD 77 EC      [19]  194 	ld	-20 (ix), a
+   00D3 DD 7E F3      [19]  195 	ld	a, -13 (ix)
    00D6 DD 77 E9      [19]  196 	ld	-23 (ix), a
-   00D9 DD 7E E2      [19]  197 	ld	a, -30 (ix)
+   00D9 DD 7E F4      [19]  197 	ld	a, -12 (ix)
    00DC DD 77 EA      [19]  198 	ld	-22 (ix), a
-   00DF DD 7E E1      [19]  199 	ld	a, -31 (ix)
-   00E2 DD 77 F3      [19]  200 	ld	-13 (ix), a
-   00E5 DD 7E E2      [19]  201 	ld	a, -30 (ix)
-   00E8 DD 77 F4      [19]  202 	ld	-12 (ix), a
-   00EB DD 7E E1      [19]  203 	ld	a, -31 (ix)
-   00EE DD 77 FB      [19]  204 	ld	-5 (ix), a
-   00F1 DD 7E E2      [19]  205 	ld	a, -30 (ix)
-   00F4 DD 77 FC      [19]  206 	ld	-4 (ix), a
-   00F7 DD 7E E1      [19]  207 	ld	a, -31 (ix)
-   00FA DD 77 E5      [19]  208 	ld	-27 (ix), a
-   00FD DD 7E E2      [19]  209 	ld	a, -30 (ix)
-   0100 DD 77 E6      [19]  210 	ld	-26 (ix), a
-   0103 DD 7E E1      [19]  211 	ld	a, -31 (ix)
-   0106 DD 77 EE      [19]  212 	ld	-18 (ix), a
-   0109 DD 7E E2      [19]  213 	ld	a, -30 (ix)
-   010C DD 77 EF      [19]  214 	ld	-17 (ix), a
-   010F DD 7E E1      [19]  215 	ld	a, -31 (ix)
-   0112 DD 77 E7      [19]  216 	ld	-25 (ix), a
-   0115 DD 7E E2      [19]  217 	ld	a, -30 (ix)
-   0118 DD 77 E8      [19]  218 	ld	-24 (ix), a
+   00DF DD 7E F3      [19]  199 	ld	a, -13 (ix)
+   00E2 DD 77 E7      [19]  200 	ld	-25 (ix), a
+   00E5 DD 7E F4      [19]  201 	ld	a, -12 (ix)
+   00E8 DD 77 E8      [19]  202 	ld	-24 (ix), a
+   00EB DD 7E F3      [19]  203 	ld	a, -13 (ix)
+   00EE DD 77 E5      [19]  204 	ld	-27 (ix), a
+   00F1 DD 7E F4      [19]  205 	ld	a, -12 (ix)
+   00F4 DD 77 E6      [19]  206 	ld	-26 (ix), a
+   00F7 DD 7E F3      [19]  207 	ld	a, -13 (ix)
+   00FA DD 77 F7      [19]  208 	ld	-9 (ix), a
+   00FD DD 7E F4      [19]  209 	ld	a, -12 (ix)
+   0100 DD 77 F8      [19]  210 	ld	-8 (ix), a
+   0103 DD 7E F3      [19]  211 	ld	a, -13 (ix)
+   0106 DD 77 F5      [19]  212 	ld	-11 (ix), a
+   0109 DD 7E F4      [19]  213 	ld	a, -12 (ix)
+   010C DD 77 F6      [19]  214 	ld	-10 (ix), a
+   010F DD 7E F3      [19]  215 	ld	a, -13 (ix)
+   0112 DD 77 FD      [19]  216 	ld	-3 (ix), a
+   0115 DD 7E F4      [19]  217 	ld	a, -12 (ix)
+   0118 DD 77 FE      [19]  218 	ld	-2 (ix), a
    011B DD 7E 09      [19]  219 	ld	a, 9 (ix)
    011E 3D            [ 4]  220 	dec	a
    011F 20 04         [12]  221 	jr	NZ,00304$
@@ -224,31 +224,31 @@
    0125                     224 00304$:
    0125 AF            [ 4]  225 	xor	a,a
    0126                     226 00305$:
-   0126 DD 77 E0      [19]  227 	ld	-32 (ix), a
+   0126 DD 77 FC      [19]  227 	ld	-4 (ix), a
    0129 DD 7E 09      [19]  228 	ld	a, 9 (ix)
    012C 4F            [ 4]  229 	ld	c, a
    012D 87            [ 4]  230 	add	a, a
    012E 87            [ 4]  231 	add	a, a
    012F 87            [ 4]  232 	add	a, a
    0130 81            [ 4]  233 	add	a, c
-   0131 DD 77 F2      [19]  234 	ld	-14 (ix), a
-   0134 DD 7E E1      [19]  235 	ld	a, -31 (ix)
-   0137 DD 77 F0      [19]  236 	ld	-16 (ix), a
-   013A DD 7E E2      [19]  237 	ld	a, -30 (ix)
-   013D DD 77 F1      [19]  238 	ld	-15 (ix), a
-   0140 DD 7E F2      [19]  239 	ld	a, -14 (ix)
-   0143 DD 77 ED      [19]  240 	ld	-19 (ix), a
-   0146 DD 7E E1      [19]  241 	ld	a, -31 (ix)
-   0149 DD 77 EB      [19]  242 	ld	-21 (ix), a
-   014C DD 7E E2      [19]  243 	ld	a, -30 (ix)
-   014F DD 77 EC      [19]  244 	ld	-20 (ix), a
-   0152 DD 36 D7 00   [19]  245 	ld	-41 (ix), #0x00
+   0131 DD 77 FB      [19]  234 	ld	-5 (ix), a
+   0134 DD 7E F3      [19]  235 	ld	a, -13 (ix)
+   0137 DD 77 F9      [19]  236 	ld	-7 (ix), a
+   013A DD 7E F4      [19]  237 	ld	a, -12 (ix)
+   013D DD 77 FA      [19]  238 	ld	-6 (ix), a
+   0140 DD 7E FB      [19]  239 	ld	a, -5 (ix)
+   0143 DD 77 E4      [19]  240 	ld	-28 (ix), a
+   0146 DD 7E F3      [19]  241 	ld	a, -13 (ix)
+   0149 DD 77 E2      [19]  242 	ld	-30 (ix), a
+   014C DD 7E F4      [19]  243 	ld	a, -12 (ix)
+   014F DD 77 E3      [19]  244 	ld	-29 (ix), a
+   0152 DD 36 AF 00   [19]  245 	ld	-81 (ix), #0x00
    0156                     246 00159$:
-   0156 DD 7E FD      [19]  247 	ld	a, -3 (ix)
+   0156 DD 7E FF      [19]  247 	ld	a, -1 (ix)
    0159 B7            [ 4]  248 	or	a, a
-   015A CAr61r04      [10]  249 	jp	Z, 00164$
+   015A CAr5Cr04      [10]  249 	jp	Z, 00164$
                             250 ;src/text/text.c:112: if ((character == 33) || ((character>43) && (character<47)) || 
-   015D DD 7E FD      [19]  251 	ld	a, -3 (ix)
+   015D DD 7E FF      [19]  251 	ld	a, -1 (ix)
    0160 D6 21         [ 7]  252 	sub	a, #0x21
    0162 20 04         [12]  253 	jr	NZ,00306$
    0164 3E 01         [ 7]  254 	ld	a,#0x01
@@ -260,98 +260,98 @@
    016A B7            [ 4]  260 	or	a, a
    016B 20 2C         [12]  261 	jr	NZ,00151$
    016D 3E 2B         [ 7]  262 	ld	a, #0x2b
-   016F DD 96 FD      [19]  263 	sub	a, -3 (ix)
+   016F DD 96 FF      [19]  263 	sub	a, -1 (ix)
    0172 30 07         [12]  264 	jr	NC,00156$
-   0174 DD 7E FD      [19]  265 	ld	a, -3 (ix)
+   0174 DD 7E FF      [19]  265 	ld	a, -1 (ix)
    0177 D6 2F         [ 7]  266 	sub	a, #0x2f
    0179 38 1E         [12]  267 	jr	C,00151$
    017B                     268 00156$:
                             269 ;src/text/text.c:113: ((character>47) && (character<58)) || ((character>62) && (character<91))) { //Allowed characters
    017B 3E 2F         [ 7]  270 	ld	a, #0x2f
-   017D DD 96 FD      [19]  271 	sub	a, -3 (ix)
+   017D DD 96 FF      [19]  271 	sub	a, -1 (ix)
    0180 30 07         [12]  272 	jr	NC,00158$
-   0182 DD 7E FD      [19]  273 	ld	a, -3 (ix)
+   0182 DD 7E FF      [19]  273 	ld	a, -1 (ix)
    0185 D6 3A         [ 7]  274 	sub	a, #0x3a
    0187 38 10         [12]  275 	jr	C,00151$
    0189                     276 00158$:
    0189 3E 3E         [ 7]  277 	ld	a, #0x3e
-   018B DD 96 FD      [19]  278 	sub	a, -3 (ix)
-   018E D2r44r04      [10]  279 	jp	NC, 00152$
-   0191 DD 7E FD      [19]  280 	ld	a, -3 (ix)
+   018B DD 96 FF      [19]  278 	sub	a, -1 (ix)
+   018E D2r3Fr04      [10]  279 	jp	NC, 00152$
+   0191 DD 7E FF      [19]  280 	ld	a, -1 (ix)
    0194 D6 5B         [ 7]  281 	sub	a, #0x5b
-   0196 D2r44r04      [10]  282 	jp	NC, 00152$
+   0196 D2r3Fr04      [10]  282 	jp	NC, 00152$
    0199                     283 00151$:
                             284 ;src/text/text.c:117: switch(character){
    0199 79            [ 4]  285 	ld	a, c
    019A B7            [ 4]  286 	or	a, a
    019B 20 5D         [12]  287 	jr	NZ,00101$
-   019D DD 7E FD      [19]  288 	ld	a, -3 (ix)
+   019D DD 7E FF      [19]  288 	ld	a, -1 (ix)
    01A0 D6 2C         [ 7]  289 	sub	a, #0x2c
    01A2 28 5C         [12]  290 	jr	Z,00104$
-   01A4 DD 7E FD      [19]  291 	ld	a, -3 (ix)
+   01A4 DD 7E FF      [19]  291 	ld	a, -1 (ix)
    01A7 D6 2D         [ 7]  292 	sub	a, #0x2d
    01A9 28 55         [12]  293 	jr	Z,00104$
-   01AB DD 7E FD      [19]  294 	ld	a, -3 (ix)
+   01AB DD 7E FF      [19]  294 	ld	a, -1 (ix)
    01AE D6 2E         [ 7]  295 	sub	a, #0x2e
    01B0 28 4E         [12]  296 	jr	Z,00104$
-   01B2 DD 7E FD      [19]  297 	ld	a, -3 (ix)
+   01B2 DD 7E FF      [19]  297 	ld	a, -1 (ix)
    01B5 D6 30         [ 7]  298 	sub	a, #0x30
    01B7 28 51         [12]  299 	jr	Z,00114$
-   01B9 DD 7E FD      [19]  300 	ld	a, -3 (ix)
+   01B9 DD 7E FF      [19]  300 	ld	a, -1 (ix)
    01BC D6 31         [ 7]  301 	sub	a, #0x31
    01BE 28 4A         [12]  302 	jr	Z,00114$
-   01C0 DD 7E FD      [19]  303 	ld	a, -3 (ix)
+   01C0 DD 7E FF      [19]  303 	ld	a, -1 (ix)
    01C3 D6 32         [ 7]  304 	sub	a, #0x32
    01C5 28 43         [12]  305 	jr	Z,00114$
-   01C7 DD 7E FD      [19]  306 	ld	a, -3 (ix)
+   01C7 DD 7E FF      [19]  306 	ld	a, -1 (ix)
    01CA D6 33         [ 7]  307 	sub	a, #0x33
    01CC 28 3C         [12]  308 	jr	Z,00114$
-   01CE DD 7E FD      [19]  309 	ld	a, -3 (ix)
+   01CE DD 7E FF      [19]  309 	ld	a, -1 (ix)
    01D1 D6 34         [ 7]  310 	sub	a, #0x34
    01D3 28 35         [12]  311 	jr	Z,00114$
-   01D5 DD 7E FD      [19]  312 	ld	a, -3 (ix)
+   01D5 DD 7E FF      [19]  312 	ld	a, -1 (ix)
    01D8 D6 35         [ 7]  313 	sub	a, #0x35
    01DA 28 2E         [12]  314 	jr	Z,00114$
-   01DC DD 7E FD      [19]  315 	ld	a, -3 (ix)
+   01DC DD 7E FF      [19]  315 	ld	a, -1 (ix)
    01DF D6 36         [ 7]  316 	sub	a, #0x36
    01E1 28 27         [12]  317 	jr	Z,00114$
-   01E3 DD 7E FD      [19]  318 	ld	a, -3 (ix)
+   01E3 DD 7E FF      [19]  318 	ld	a, -1 (ix)
    01E6 D6 37         [ 7]  319 	sub	a, #0x37
    01E8 28 20         [12]  320 	jr	Z,00114$
-   01EA DD 7E FD      [19]  321 	ld	a, -3 (ix)
+   01EA DD 7E FF      [19]  321 	ld	a, -1 (ix)
    01ED D6 38         [ 7]  322 	sub	a, #0x38
    01EF 28 19         [12]  323 	jr	Z,00114$
-   01F1 DD 7E FD      [19]  324 	ld	a, -3 (ix)
+   01F1 DD 7E FF      [19]  324 	ld	a, -1 (ix)
    01F4 D6 39         [ 7]  325 	sub	a, #0x39
    01F6 28 12         [12]  326 	jr	Z,00114$
    01F8 18 18         [12]  327 	jr	00115$
                             328 ;src/text/text.c:119: case 33:
    01FA                     329 00101$:
                             330 ;src/text/text.c:120: character=49;
-   01FA DD 36 FD 31   [19]  331 	ld	-3 (ix), #0x31
+   01FA DD 36 FF 31   [19]  331 	ld	-1 (ix), #0x31
                             332 ;src/text/text.c:121: break;
    01FE 18 12         [12]  333 	jr	00115$
                             334 ;src/text/text.c:126: case 46:
    0200                     335 00104$:
                             336 ;src/text/text.c:127: character+=6;
-   0200 DD 7E FD      [19]  337 	ld	a, -3 (ix)
+   0200 DD 7E FF      [19]  337 	ld	a, -1 (ix)
    0203 C6 06         [ 7]  338 	add	a, #0x06
-   0205 DD 77 FD      [19]  339 	ld	-3 (ix), a
+   0205 DD 77 FF      [19]  339 	ld	-1 (ix), a
                             340 ;src/text/text.c:128: break;
    0208 18 08         [12]  341 	jr	00115$
                             342 ;src/text/text.c:140: case 57:
    020A                     343 00114$:
                             344 ;src/text/text.c:141: character+=5;
-   020A DD 7E FD      [19]  345 	ld	a, -3 (ix)
+   020A DD 7E FF      [19]  345 	ld	a, -1 (ix)
    020D C6 05         [ 7]  346 	add	a, #0x05
-   020F DD 77 FD      [19]  347 	ld	-3 (ix), a
+   020F DD 77 FF      [19]  347 	ld	-1 (ix), a
                             348 ;src/text/text.c:143: }
    0212                     349 00115$:
                             350 ;src/text/text.c:146: character-=49;
-   0212 DD 7E FD      [19]  351 	ld	a, -3 (ix)
+   0212 DD 7E FF      [19]  351 	ld	a, -1 (ix)
    0215 C6 CF         [ 7]  352 	add	a, #0xcf
                             353 ;src/text/text.c:149: for(i=0;i<18;i++){
-   0217 DD 77 AD      [19]  354 	ld	-83 (ix), a
+   0217 DD 77 D9      [19]  354 	ld	-39 (ix), a
    021A 4F            [ 4]  355 	ld	c, a
    021B 06 00         [ 7]  356 	ld	b,#0x00
    021D 69            [ 4]  357 	ld	l, c
@@ -363,348 +363,351 @@
    0223 29            [11]  363 	add	hl, hl
    0224 4D            [ 4]  364 	ld	c, l
    0225 44            [ 4]  365 	ld	b, h
-   0226 DD 36 D6 00   [19]  366 	ld	-42 (ix), #0x00
+   0226 DD 36 B0 00   [19]  366 	ld	-80 (ix), #0x00
    022A                     367 00162$:
                             368 ;src/text/text.c:150: pChar = (u8*) g_font_chars + (character*18) + i;
    022A 21r00r00      [10]  369 	ld	hl, #_g_font_chars
    022D 09            [11]  370 	add	hl, bc
-   022E DD 5E D6      [19]  371 	ld	e,-42 (ix)
+   022E DD 5E B0      [19]  371 	ld	e,-80 (ix)
    0231 16 00         [ 7]  372 	ld	d,#0x00
    0233 19            [11]  373 	add	hl, de
-                            374 ;src/text/text.c:154: if(*pChar == 0x55) colorchar[i]=color1;
-   0234 DD 75 D8      [19]  375 	ld	-40 (ix), l
-   0237 DD 74 D9      [19]  376 	ld	-39 (ix), h
-   023A 5E            [ 7]  377 	ld	e, (hl)
-   023B 7B            [ 4]  378 	ld	a, e
-   023C D6 55         [ 7]  379 	sub	a, #0x55
-   023E 20 04         [12]  380 	jr	NZ,00321$
-   0240 3E 01         [ 7]  381 	ld	a,#0x01
-   0242 18 01         [12]  382 	jr	00322$
-   0244                     383 00321$:
-   0244 AF            [ 4]  384 	xor	a,a
-   0245                     385 00322$:
-   0245 DD 77 DF      [19]  386 	ld	-33 (ix), a
-                            387 ;src/text/text.c:155: else if(*pChar == 0xee) colorchar[i]=color2;
-   0248 7B            [ 4]  388 	ld	a, e
-   0249 D6 EE         [ 7]  389 	sub	a, #0xee
-   024B 20 04         [12]  390 	jr	NZ,00323$
-   024D 3E 01         [ 7]  391 	ld	a,#0x01
-   024F 18 01         [12]  392 	jr	00324$
-   0251                     393 00323$:
-   0251 AF            [ 4]  394 	xor	a,a
-   0252                     395 00324$:
-   0252 DD 77 DE      [19]  396 	ld	-34 (ix), a
-                            397 ;src/text/text.c:156: else if(*pChar == 0xdd) colorchar[i]=color3;
-   0255 7B            [ 4]  398 	ld	a, e
-   0256 D6 DD         [ 7]  399 	sub	a, #0xdd
-   0258 20 04         [12]  400 	jr	NZ,00325$
-   025A 3E 01         [ 7]  401 	ld	a,#0x01
-   025C 18 01         [12]  402 	jr	00326$
-   025E                     403 00325$:
-   025E AF            [ 4]  404 	xor	a,a
-   025F                     405 00326$:
-   025F DD 77 FF      [19]  406 	ld	-1 (ix), a
-                            407 ;src/text/text.c:157: else if(*pChar == 0xff) colorchar[i]=color4;
-   0262 7B            [ 4]  408 	ld	a, e
-   0263 3C            [ 4]  409 	inc	a
-   0264 20 04         [12]  410 	jr	NZ,00327$
-   0266 3E 01         [ 7]  411 	ld	a,#0x01
-   0268 18 01         [12]  412 	jr	00328$
-   026A                     413 00327$:
-   026A AF            [ 4]  414 	xor	a,a
-   026B                     415 00328$:
-   026B DD 77 FE      [19]  416 	ld	-2 (ix), a
-                            417 ;src/text/text.c:152: if(size==1) {
-   026E DD 7E E0      [19]  418 	ld	a, -32 (ix)
-   0271 B7            [ 4]  419 	or	a, a
-   0272 CArEEr02      [10]  420 	jp	Z, 00141$
-                            421 ;src/text/text.c:154: if(*pChar == 0x55) colorchar[i]=color1;
-   0275 DD 7E DF      [19]  422 	ld	a, -33 (ix)
-   0278 B7            [ 4]  423 	or	a, a
-   0279 28 14         [12]  424 	jr	Z,00126$
-   027B DD 7E E7      [19]  425 	ld	a, -25 (ix)
-   027E DD 86 D6      [19]  426 	add	a, -42 (ix)
-   0281 5F            [ 4]  427 	ld	e, a
-   0282 DD 7E E8      [19]  428 	ld	a, -24 (ix)
-   0285 CE 00         [ 7]  429 	adc	a, #0x00
-   0287 57            [ 4]  430 	ld	d, a
-   0288 DD 7E D5      [19]  431 	ld	a, -43 (ix)
-   028B 12            [ 7]  432 	ld	(de), a
-   028C C3rC7r03      [10]  433 	jp	00163$
-   028F                     434 00126$:
-                            435 ;src/text/text.c:155: else if(*pChar == 0xee) colorchar[i]=color2;
-   028F DD 7E DE      [19]  436 	ld	a, -34 (ix)
-   0292 B7            [ 4]  437 	or	a, a
-   0293 28 14         [12]  438 	jr	Z,00123$
-   0295 DD 7E EE      [19]  439 	ld	a, -18 (ix)
-   0298 DD 86 D6      [19]  440 	add	a, -42 (ix)
-   029B 5F            [ 4]  441 	ld	e, a
-   029C DD 7E EF      [19]  442 	ld	a, -17 (ix)
-   029F CE 00         [ 7]  443 	adc	a, #0x00
-   02A1 57            [ 4]  444 	ld	d, a
-   02A2 DD 7E D4      [19]  445 	ld	a, -44 (ix)
-   02A5 12            [ 7]  446 	ld	(de), a
-   02A6 C3rC7r03      [10]  447 	jp	00163$
-   02A9                     448 00123$:
-                            449 ;src/text/text.c:156: else if(*pChar == 0xdd) colorchar[i]=color3;
-   02A9 DD 7E FF      [19]  450 	ld	a, -1 (ix)
-   02AC B7            [ 4]  451 	or	a, a
-   02AD 28 14         [12]  452 	jr	Z,00120$
-   02AF DD 7E E5      [19]  453 	ld	a, -27 (ix)
-   02B2 DD 86 D6      [19]  454 	add	a, -42 (ix)
-   02B5 5F            [ 4]  455 	ld	e, a
-   02B6 DD 7E E6      [19]  456 	ld	a, -26 (ix)
-   02B9 CE 00         [ 7]  457 	adc	a, #0x00
-   02BB 57            [ 4]  458 	ld	d, a
-   02BC DD 7E D3      [19]  459 	ld	a, -45 (ix)
-   02BF 12            [ 7]  460 	ld	(de), a
-   02C0 C3rC7r03      [10]  461 	jp	00163$
-   02C3                     462 00120$:
-                            463 ;src/text/text.c:157: else if(*pChar == 0xff) colorchar[i]=color4;
-   02C3 DD 7E FE      [19]  464 	ld	a, -2 (ix)
-   02C6 B7            [ 4]  465 	or	a, a
-   02C7 28 14         [12]  466 	jr	Z,00117$
-   02C9 DD 7E FB      [19]  467 	ld	a, -5 (ix)
-   02CC DD 86 D6      [19]  468 	add	a, -42 (ix)
-   02CF 5F            [ 4]  469 	ld	e, a
-   02D0 DD 7E FC      [19]  470 	ld	a, -4 (ix)
-   02D3 CE 00         [ 7]  471 	adc	a, #0x00
-   02D5 57            [ 4]  472 	ld	d, a
-   02D6 DD 7E D2      [19]  473 	ld	a, -46 (ix)
-   02D9 12            [ 7]  474 	ld	(de), a
-   02DA C3rC7r03      [10]  475 	jp	00163$
-   02DD                     476 00117$:
-                            477 ;src/text/text.c:158: else colorchar[i]=*pChar;
-   02DD DD 7E F3      [19]  478 	ld	a, -13 (ix)
-   02E0 DD 86 D6      [19]  479 	add	a, -42 (ix)
-   02E3 6F            [ 4]  480 	ld	l, a
-   02E4 DD 7E F4      [19]  481 	ld	a, -12 (ix)
-   02E7 CE 00         [ 7]  482 	adc	a, #0x00
-   02E9 67            [ 4]  483 	ld	h, a
-   02EA 73            [ 7]  484 	ld	(hl), e
-   02EB C3rC7r03      [10]  485 	jp	00163$
-   02EE                     486 00141$:
-                            487 ;src/text/text.c:163: pos=(i*size)-(i%FONT2_W);
-   02EE D5            [11]  488 	push	de
-   02EF C5            [11]  489 	push	bc
-   02F0 DD 5E 09      [19]  490 	ld	e, 9 (ix)
-   02F3 DD 66 D6      [19]  491 	ld	h, -42 (ix)
-   02F6 2E 00         [ 7]  492 	ld	l, #0x00
-   02F8 55            [ 4]  493 	ld	d, l
-   02F9 06 08         [ 7]  494 	ld	b, #0x08
-   02FB                     495 00329$:
-   02FB 29            [11]  496 	add	hl, hl
-   02FC 30 01         [12]  497 	jr	NC,00330$
-   02FE 19            [11]  498 	add	hl, de
-   02FF                     499 00330$:
-   02FF 10 FA         [13]  500 	djnz	00329$
-   0301 C1            [10]  501 	pop	bc
-   0302 D1            [10]  502 	pop	de
-   0303 DD 7E D6      [19]  503 	ld	a, -42 (ix)
-   0306 E6 01         [ 7]  504 	and	a, #0x01
-   0308 57            [ 4]  505 	ld	d, a
-   0309 7D            [ 4]  506 	ld	a, l
-   030A 92            [ 4]  507 	sub	a, d
-   030B 6F            [ 4]  508 	ld	l, a
-                            509 ;src/text/text.c:167: colorchar[pos+FONT2_W]=color1;
-   030C 55            [ 4]  510 	ld	d, l
-   030D 14            [ 4]  511 	inc	d
-   030E 14            [ 4]  512 	inc	d
-                            513 ;src/text/text.c:165: if(*pChar == 0x55) {
-   030F DD 7E DF      [19]  514 	ld	a, -33 (ix)
-   0312 B7            [ 4]  515 	or	a, a
-   0313 28 21         [12]  516 	jr	Z,00138$
-                            517 ;src/text/text.c:166: colorchar[pos]=color1;
-   0315 DD 7E E9      [19]  518 	ld	a, -23 (ix)
-   0318 85            [ 4]  519 	add	a, l
-   0319 6F            [ 4]  520 	ld	l, a
-   031A DD 7E EA      [19]  521 	ld	a, -22 (ix)
-   031D CE 00         [ 7]  522 	adc	a, #0x00
-   031F 67            [ 4]  523 	ld	h, a
-   0320 DD 7E D5      [19]  524 	ld	a, -43 (ix)
-   0323 77            [ 7]  525 	ld	(hl), a
-                            526 ;src/text/text.c:167: colorchar[pos+FONT2_W]=color1;
-   0324 DD 7E E9      [19]  527 	ld	a, -23 (ix)
-   0327 82            [ 4]  528 	add	a, d
-   0328 5F            [ 4]  529 	ld	e, a
-   0329 DD 7E EA      [19]  530 	ld	a, -22 (ix)
-   032C CE 00         [ 7]  531 	adc	a, #0x00
-   032E 57            [ 4]  532 	ld	d, a
-   032F DD 7E D5      [19]  533 	ld	a, -43 (ix)
-   0332 12            [ 7]  534 	ld	(de), a
-   0333 C3rC7r03      [10]  535 	jp	00163$
-   0336                     536 00138$:
-                            537 ;src/text/text.c:169: else if(*pChar == 0xee) {
-   0336 DD 7E DE      [19]  538 	ld	a, -34 (ix)
-   0339 B7            [ 4]  539 	or	a, a
-   033A 28 20         [12]  540 	jr	Z,00135$
-                            541 ;src/text/text.c:170: colorchar[pos]=color2;
-   033C DD 7E E3      [19]  542 	ld	a, -29 (ix)
-   033F 85            [ 4]  543 	add	a, l
-   0340 6F            [ 4]  544 	ld	l, a
-   0341 DD 7E E4      [19]  545 	ld	a, -28 (ix)
-   0344 CE 00         [ 7]  546 	adc	a, #0x00
-   0346 67            [ 4]  547 	ld	h, a
-   0347 DD 7E D4      [19]  548 	ld	a, -44 (ix)
-   034A 77            [ 7]  549 	ld	(hl), a
-                            550 ;src/text/text.c:171: colorchar[pos+FONT2_W]=color2;
-   034B DD 7E E3      [19]  551 	ld	a, -29 (ix)
-   034E 82            [ 4]  552 	add	a, d
-   034F 5F            [ 4]  553 	ld	e, a
-   0350 DD 7E E4      [19]  554 	ld	a, -28 (ix)
-   0353 CE 00         [ 7]  555 	adc	a, #0x00
-   0355 57            [ 4]  556 	ld	d, a
-   0356 DD 7E D4      [19]  557 	ld	a, -44 (ix)
-   0359 12            [ 7]  558 	ld	(de), a
-   035A 18 6B         [12]  559 	jr	00163$
-   035C                     560 00135$:
-                            561 ;src/text/text.c:173: else if(*pChar == 0xdd) {
-   035C DD 7E FF      [19]  562 	ld	a, -1 (ix)
-   035F B7            [ 4]  563 	or	a, a
-   0360 28 20         [12]  564 	jr	Z,00132$
-                            565 ;src/text/text.c:174: colorchar[pos]=color3;
-   0362 DD 7E F9      [19]  566 	ld	a, -7 (ix)
-   0365 85            [ 4]  567 	add	a, l
-   0366 6F            [ 4]  568 	ld	l, a
-   0367 DD 7E FA      [19]  569 	ld	a, -6 (ix)
-   036A CE 00         [ 7]  570 	adc	a, #0x00
-   036C 67            [ 4]  571 	ld	h, a
-   036D DD 7E D3      [19]  572 	ld	a, -45 (ix)
-   0370 77            [ 7]  573 	ld	(hl), a
-                            574 ;src/text/text.c:175: colorchar[pos+FONT2_W]=color3;
-   0371 DD 7E F9      [19]  575 	ld	a, -7 (ix)
-   0374 82            [ 4]  576 	add	a, d
-   0375 5F            [ 4]  577 	ld	e, a
-   0376 DD 7E FA      [19]  578 	ld	a, -6 (ix)
-   0379 CE 00         [ 7]  579 	adc	a, #0x00
-   037B 57            [ 4]  580 	ld	d, a
-   037C DD 7E D3      [19]  581 	ld	a, -45 (ix)
-   037F 12            [ 7]  582 	ld	(de), a
-   0380 18 45         [12]  583 	jr	00163$
-   0382                     584 00132$:
-                            585 ;src/text/text.c:177: else if(*pChar == 0xff) {
-   0382 DD 7E FE      [19]  586 	ld	a, -2 (ix)
-   0385 B7            [ 4]  587 	or	a, a
-   0386 28 20         [12]  588 	jr	Z,00129$
-                            589 ;src/text/text.c:178: colorchar[pos]=color4;
-   0388 DD 7E DA      [19]  590 	ld	a, -38 (ix)
-   038B 85            [ 4]  591 	add	a, l
-   038C 6F            [ 4]  592 	ld	l, a
-   038D DD 7E DB      [19]  593 	ld	a, -37 (ix)
-   0390 CE 00         [ 7]  594 	adc	a, #0x00
-   0392 67            [ 4]  595 	ld	h, a
-   0393 DD 7E D2      [19]  596 	ld	a, -46 (ix)
-   0396 77            [ 7]  597 	ld	(hl), a
-                            598 ;src/text/text.c:179: colorchar[pos+FONT2_W]=color4;
-   0397 DD 7E DA      [19]  599 	ld	a, -38 (ix)
-   039A 82            [ 4]  600 	add	a, d
-   039B 5F            [ 4]  601 	ld	e, a
-   039C DD 7E DB      [19]  602 	ld	a, -37 (ix)
-   039F CE 00         [ 7]  603 	adc	a, #0x00
-   03A1 57            [ 4]  604 	ld	d, a
-   03A2 DD 7E D2      [19]  605 	ld	a, -46 (ix)
-   03A5 12            [ 7]  606 	ld	(de), a
-   03A6 18 1F         [12]  607 	jr	00163$
-   03A8                     608 00129$:
-                            609 ;src/text/text.c:182: colorchar[pos]=*pChar;
-   03A8 DD 7E E1      [19]  610 	ld	a, -31 (ix)
-   03AB 85            [ 4]  611 	add	a, l
-   03AC 6F            [ 4]  612 	ld	l, a
-   03AD DD 7E E2      [19]  613 	ld	a, -30 (ix)
-   03B0 CE 00         [ 7]  614 	adc	a, #0x00
-   03B2 67            [ 4]  615 	ld	h, a
-   03B3 73            [ 7]  616 	ld	(hl), e
-                            617 ;src/text/text.c:183: colorchar[pos+FONT2_W]=*pChar;
-   03B4 DD 7E E1      [19]  618 	ld	a, -31 (ix)
-   03B7 82            [ 4]  619 	add	a, d
-   03B8 5F            [ 4]  620 	ld	e, a
-   03B9 DD 7E E2      [19]  621 	ld	a, -30 (ix)
-   03BC CE 00         [ 7]  622 	adc	a, #0x00
-   03BE 57            [ 4]  623 	ld	d, a
-   03BF DD 6E D8      [19]  624 	ld	l,-40 (ix)
-   03C2 DD 66 D9      [19]  625 	ld	h,-39 (ix)
-   03C5 7E            [ 7]  626 	ld	a, (hl)
-   03C6 12            [ 7]  627 	ld	(de), a
-   03C7                     628 00163$:
-                            629 ;src/text/text.c:149: for(i=0;i<18;i++){
-   03C7 DD 34 D6      [23]  630 	inc	-42 (ix)
-   03CA DD 7E D6      [19]  631 	ld	a, -42 (ix)
-   03CD D6 12         [ 7]  632 	sub	a, #0x12
-   03CF DAr2Ar02      [10]  633 	jp	C, 00162$
-                            634 ;src/text/text.c:192: pvideo = cpct_getScreenPtr(CPCT_VMEM_START, xPos, yPos);
-   03D2 DD 66 07      [19]  635 	ld	h, 7 (ix)
-   03D5 DD 6E 06      [19]  636 	ld	l, 6 (ix)
-   03D8 E5            [11]  637 	push	hl
-   03D9 21 00 C0      [10]  638 	ld	hl, #0xc000
-   03DC E5            [11]  639 	push	hl
-   03DD CDr00r00      [17]  640 	call	_cpct_getScreenPtr
-                            641 ;src/text/text.c:193: if(transparent) cpct_drawSpriteMaskedAlignedTable(colorchar, pvideo, FONT2_W, FONT2_H*size, g_tablatrans);
-   03E0 DD 75 F7      [19]  642 	ld	-9 (ix), l
-   03E3 DD 74 F8      [19]  643 	ld	-8 (ix), h
-   03E6 DD 7E 0A      [19]  644 	ld	a, 10 (ix)
-   03E9 B7            [ 4]  645 	or	a, a
-   03EA 28 1D         [12]  646 	jr	Z,00145$
-   03EC 11r00r00      [10]  647 	ld	de, #_g_tablatrans
-   03EF DD 4E EB      [19]  648 	ld	c,-21 (ix)
-   03F2 DD 46 EC      [19]  649 	ld	b,-20 (ix)
-   03F5 D5            [11]  650 	push	de
-   03F6 DD 56 ED      [19]  651 	ld	d, -19 (ix)
-   03F9 1E 02         [ 7]  652 	ld	e,#0x02
-   03FB D5            [11]  653 	push	de
-   03FC DD 6E F7      [19]  654 	ld	l,-9 (ix)
-   03FF DD 66 F8      [19]  655 	ld	h,-8 (ix)
-   0402 E5            [11]  656 	push	hl
-   0403 C5            [11]  657 	push	bc
-   0404 CDr00r00      [17]  658 	call	_cpct_drawSpriteMaskedAlignedTable
-   0407 18 23         [12]  659 	jr	00146$
-   0409                     660 00145$:
-                            661 ;src/text/text.c:194: else cpct_drawSprite (colorchar, pvideo, FONT2_W, FONT2_H*size);
-   0409 DD 7E F0      [19]  662 	ld	a, -16 (ix)
-   040C DD 77 F5      [19]  663 	ld	-11 (ix), a
-   040F DD 7E F1      [19]  664 	ld	a, -15 (ix)
-   0412 DD 77 F6      [19]  665 	ld	-10 (ix), a
-   0415 DD 56 F2      [19]  666 	ld	d, -14 (ix)
-   0418 1E 02         [ 7]  667 	ld	e,#0x02
-   041A D5            [11]  668 	push	de
-   041B DD 6E F7      [19]  669 	ld	l,-9 (ix)
-   041E DD 66 F8      [19]  670 	ld	h,-8 (ix)
-   0421 E5            [11]  671 	push	hl
-   0422 DD 6E F5      [19]  672 	ld	l,-11 (ix)
-   0425 DD 66 F6      [19]  673 	ld	h,-10 (ix)
-   0428 E5            [11]  674 	push	hl
-   0429 CDr00r00      [17]  675 	call	_cpct_drawSprite
-   042C                     676 00146$:
-                            677 ;src/text/text.c:197: if(character == 48 || character == 60 || character == 57) xPos--;
-   042C DD 7E AD      [19]  678 	ld	a, -83 (ix)
-   042F D6 30         [ 7]  679 	sub	a, #0x30
-   0431 28 0E         [12]  680 	jr	Z,00147$
-   0433 DD 7E AD      [19]  681 	ld	a, -83 (ix)
-   0436 D6 3C         [ 7]  682 	sub	a, #0x3c
-   0438 28 07         [12]  683 	jr	Z,00147$
-   043A DD 7E AD      [19]  684 	ld	a, -83 (ix)
-   043D D6 39         [ 7]  685 	sub	a, #0x39
-   043F 20 03         [12]  686 	jr	NZ,00152$
-   0441                     687 00147$:
-   0441 DD 35 06      [23]  688 	dec	6 (ix)
-   0444                     689 00152$:
-                            690 ;src/text/text.c:200: character = text[++x];
-   0444 DD 34 D7      [23]  691 	inc	-41 (ix)
-   0447 DD 7E DC      [19]  692 	ld	a, -36 (ix)
-   044A DD 86 D7      [19]  693 	add	a, -41 (ix)
-   044D 6F            [ 4]  694 	ld	l, a
-   044E DD 7E DD      [19]  695 	ld	a, -35 (ix)
-   0451 CE 00         [ 7]  696 	adc	a, #0x00
-   0453 67            [ 4]  697 	ld	h, a
-   0454 7E            [ 7]  698 	ld	a, (hl)
-   0455 DD 77 FD      [19]  699 	ld	-3 (ix), a
-                            700 ;src/text/text.c:201: xPos+=FONT2_W;
-   0458 DD 34 06      [23]  701 	inc	6 (ix)
-   045B DD 34 06      [23]  702 	inc	6 (ix)
-   045E C3r56r01      [10]  703 	jp	00159$
-   0461                     704 00164$:
-   0461 DD F9         [10]  705 	ld	sp, ix
-   0463 DD E1         [14]  706 	pop	ix
-   0465 C9            [10]  707 	ret
-                            708 	.area _CODE
-                            709 	.area _INITIALIZER
-                            710 	.area _CABS (ABS)
+   0234 33            [ 6]  374 	inc	sp
+   0235 33            [ 6]  375 	inc	sp
+   0236 E5            [11]  376 	push	hl
+                            377 ;src/text/text.c:154: if(*pChar == 0x55) colorchar[i]=color1;
+   0237 E1            [10]  378 	pop	hl
+   0238 E5            [11]  379 	push	hl
+   0239 5E            [ 7]  380 	ld	e, (hl)
+   023A 7B            [ 4]  381 	ld	a, e
+   023B D6 55         [ 7]  382 	sub	a, #0x55
+   023D 20 04         [12]  383 	jr	NZ,00321$
+   023F 3E 01         [ 7]  384 	ld	a,#0x01
+   0241 18 01         [12]  385 	jr	00322$
+   0243                     386 00321$:
+   0243 AF            [ 4]  387 	xor	a,a
+   0244                     388 00322$:
+   0244 DD 77 E1      [19]  389 	ld	-31 (ix), a
+                            390 ;src/text/text.c:155: else if(*pChar == 0xee) colorchar[i]=color2;
+   0247 7B            [ 4]  391 	ld	a, e
+   0248 D6 EE         [ 7]  392 	sub	a, #0xee
+   024A 20 04         [12]  393 	jr	NZ,00323$
+   024C 3E 01         [ 7]  394 	ld	a,#0x01
+   024E 18 01         [12]  395 	jr	00324$
+   0250                     396 00323$:
+   0250 AF            [ 4]  397 	xor	a,a
+   0251                     398 00324$:
+   0251 DD 77 E0      [19]  399 	ld	-32 (ix), a
+                            400 ;src/text/text.c:156: else if(*pChar == 0xdd) colorchar[i]=color3;
+   0254 7B            [ 4]  401 	ld	a, e
+   0255 D6 DD         [ 7]  402 	sub	a, #0xdd
+   0257 20 04         [12]  403 	jr	NZ,00325$
+   0259 3E 01         [ 7]  404 	ld	a,#0x01
+   025B 18 01         [12]  405 	jr	00326$
+   025D                     406 00325$:
+   025D AF            [ 4]  407 	xor	a,a
+   025E                     408 00326$:
+   025E DD 77 DF      [19]  409 	ld	-33 (ix), a
+                            410 ;src/text/text.c:157: else if(*pChar == 0xff) colorchar[i]=color4;
+   0261 7B            [ 4]  411 	ld	a, e
+   0262 3C            [ 4]  412 	inc	a
+   0263 20 04         [12]  413 	jr	NZ,00327$
+   0265 3E 01         [ 7]  414 	ld	a,#0x01
+   0267 18 01         [12]  415 	jr	00328$
+   0269                     416 00327$:
+   0269 AF            [ 4]  417 	xor	a,a
+   026A                     418 00328$:
+   026A DD 77 DE      [19]  419 	ld	-34 (ix), a
+                            420 ;src/text/text.c:152: if(size==1) {
+   026D DD 7E FC      [19]  421 	ld	a, -4 (ix)
+   0270 B7            [ 4]  422 	or	a, a
+   0271 CArEDr02      [10]  423 	jp	Z, 00141$
+                            424 ;src/text/text.c:154: if(*pChar == 0x55) colorchar[i]=color1;
+   0274 DD 7E E1      [19]  425 	ld	a, -31 (ix)
+   0277 B7            [ 4]  426 	or	a, a
+   0278 28 14         [12]  427 	jr	Z,00126$
+   027A DD 7E FD      [19]  428 	ld	a, -3 (ix)
+   027D DD 86 B0      [19]  429 	add	a, -80 (ix)
+   0280 5F            [ 4]  430 	ld	e, a
+   0281 DD 7E FE      [19]  431 	ld	a, -2 (ix)
+   0284 CE 00         [ 7]  432 	adc	a, #0x00
+   0286 57            [ 4]  433 	ld	d, a
+   0287 DD 7E B1      [19]  434 	ld	a, -79 (ix)
+   028A 12            [ 7]  435 	ld	(de), a
+   028B C3rC2r03      [10]  436 	jp	00163$
+   028E                     437 00126$:
+                            438 ;src/text/text.c:155: else if(*pChar == 0xee) colorchar[i]=color2;
+   028E DD 7E E0      [19]  439 	ld	a, -32 (ix)
+   0291 B7            [ 4]  440 	or	a, a
+   0292 28 14         [12]  441 	jr	Z,00123$
+   0294 DD 7E F5      [19]  442 	ld	a, -11 (ix)
+   0297 DD 86 B0      [19]  443 	add	a, -80 (ix)
+   029A 5F            [ 4]  444 	ld	e, a
+   029B DD 7E F6      [19]  445 	ld	a, -10 (ix)
+   029E CE 00         [ 7]  446 	adc	a, #0x00
+   02A0 57            [ 4]  447 	ld	d, a
+   02A1 DD 7E B2      [19]  448 	ld	a, -78 (ix)
+   02A4 12            [ 7]  449 	ld	(de), a
+   02A5 C3rC2r03      [10]  450 	jp	00163$
+   02A8                     451 00123$:
+                            452 ;src/text/text.c:156: else if(*pChar == 0xdd) colorchar[i]=color3;
+   02A8 DD 7E DF      [19]  453 	ld	a, -33 (ix)
+   02AB B7            [ 4]  454 	or	a, a
+   02AC 28 14         [12]  455 	jr	Z,00120$
+   02AE DD 7E F7      [19]  456 	ld	a, -9 (ix)
+   02B1 DD 86 B0      [19]  457 	add	a, -80 (ix)
+   02B4 5F            [ 4]  458 	ld	e, a
+   02B5 DD 7E F8      [19]  459 	ld	a, -8 (ix)
+   02B8 CE 00         [ 7]  460 	adc	a, #0x00
+   02BA 57            [ 4]  461 	ld	d, a
+   02BB DD 7E B3      [19]  462 	ld	a, -77 (ix)
+   02BE 12            [ 7]  463 	ld	(de), a
+   02BF C3rC2r03      [10]  464 	jp	00163$
+   02C2                     465 00120$:
+                            466 ;src/text/text.c:157: else if(*pChar == 0xff) colorchar[i]=color4;
+   02C2 DD 7E DE      [19]  467 	ld	a, -34 (ix)
+   02C5 B7            [ 4]  468 	or	a, a
+   02C6 28 14         [12]  469 	jr	Z,00117$
+   02C8 DD 7E E5      [19]  470 	ld	a, -27 (ix)
+   02CB DD 86 B0      [19]  471 	add	a, -80 (ix)
+   02CE 5F            [ 4]  472 	ld	e, a
+   02CF DD 7E E6      [19]  473 	ld	a, -26 (ix)
+   02D2 CE 00         [ 7]  474 	adc	a, #0x00
+   02D4 57            [ 4]  475 	ld	d, a
+   02D5 DD 7E B4      [19]  476 	ld	a, -76 (ix)
+   02D8 12            [ 7]  477 	ld	(de), a
+   02D9 C3rC2r03      [10]  478 	jp	00163$
+   02DC                     479 00117$:
+                            480 ;src/text/text.c:158: else colorchar[i]=*pChar;
+   02DC DD 7E E7      [19]  481 	ld	a, -25 (ix)
+   02DF DD 86 B0      [19]  482 	add	a, -80 (ix)
+   02E2 6F            [ 4]  483 	ld	l, a
+   02E3 DD 7E E8      [19]  484 	ld	a, -24 (ix)
+   02E6 CE 00         [ 7]  485 	adc	a, #0x00
+   02E8 67            [ 4]  486 	ld	h, a
+   02E9 73            [ 7]  487 	ld	(hl), e
+   02EA C3rC2r03      [10]  488 	jp	00163$
+   02ED                     489 00141$:
+                            490 ;src/text/text.c:163: pos=(i*size)-(i%FONT2_W);
+   02ED D5            [11]  491 	push	de
+   02EE C5            [11]  492 	push	bc
+   02EF DD 5E 09      [19]  493 	ld	e, 9 (ix)
+   02F2 DD 66 B0      [19]  494 	ld	h, -80 (ix)
+   02F5 2E 00         [ 7]  495 	ld	l, #0x00
+   02F7 55            [ 4]  496 	ld	d, l
+   02F8 06 08         [ 7]  497 	ld	b, #0x08
+   02FA                     498 00329$:
+   02FA 29            [11]  499 	add	hl, hl
+   02FB 30 01         [12]  500 	jr	NC,00330$
+   02FD 19            [11]  501 	add	hl, de
+   02FE                     502 00330$:
+   02FE 10 FA         [13]  503 	djnz	00329$
+   0300 C1            [10]  504 	pop	bc
+   0301 D1            [10]  505 	pop	de
+   0302 DD 7E B0      [19]  506 	ld	a, -80 (ix)
+   0305 E6 01         [ 7]  507 	and	a, #0x01
+   0307 57            [ 4]  508 	ld	d, a
+   0308 7D            [ 4]  509 	ld	a, l
+   0309 92            [ 4]  510 	sub	a, d
+   030A 6F            [ 4]  511 	ld	l, a
+                            512 ;src/text/text.c:167: colorchar[pos+FONT2_W]=color1;
+   030B 55            [ 4]  513 	ld	d, l
+   030C 14            [ 4]  514 	inc	d
+   030D 14            [ 4]  515 	inc	d
+                            516 ;src/text/text.c:165: if(*pChar == 0x55) {
+   030E DD 7E E1      [19]  517 	ld	a, -31 (ix)
+   0311 B7            [ 4]  518 	or	a, a
+   0312 28 21         [12]  519 	jr	Z,00138$
+                            520 ;src/text/text.c:166: colorchar[pos]=color1;
+   0314 DD 7E E9      [19]  521 	ld	a, -23 (ix)
+   0317 85            [ 4]  522 	add	a, l
+   0318 6F            [ 4]  523 	ld	l, a
+   0319 DD 7E EA      [19]  524 	ld	a, -22 (ix)
+   031C CE 00         [ 7]  525 	adc	a, #0x00
+   031E 67            [ 4]  526 	ld	h, a
+   031F DD 7E B1      [19]  527 	ld	a, -79 (ix)
+   0322 77            [ 7]  528 	ld	(hl), a
+                            529 ;src/text/text.c:167: colorchar[pos+FONT2_W]=color1;
+   0323 DD 7E E9      [19]  530 	ld	a, -23 (ix)
+   0326 82            [ 4]  531 	add	a, d
+   0327 5F            [ 4]  532 	ld	e, a
+   0328 DD 7E EA      [19]  533 	ld	a, -22 (ix)
+   032B CE 00         [ 7]  534 	adc	a, #0x00
+   032D 57            [ 4]  535 	ld	d, a
+   032E DD 7E B1      [19]  536 	ld	a, -79 (ix)
+   0331 12            [ 7]  537 	ld	(de), a
+   0332 C3rC2r03      [10]  538 	jp	00163$
+   0335                     539 00138$:
+                            540 ;src/text/text.c:169: else if(*pChar == 0xee) {
+   0335 DD 7E E0      [19]  541 	ld	a, -32 (ix)
+   0338 B7            [ 4]  542 	or	a, a
+   0339 28 20         [12]  543 	jr	Z,00135$
+                            544 ;src/text/text.c:170: colorchar[pos]=color2;
+   033B DD 7E EB      [19]  545 	ld	a, -21 (ix)
+   033E 85            [ 4]  546 	add	a, l
+   033F 6F            [ 4]  547 	ld	l, a
+   0340 DD 7E EC      [19]  548 	ld	a, -20 (ix)
+   0343 CE 00         [ 7]  549 	adc	a, #0x00
+   0345 67            [ 4]  550 	ld	h, a
+   0346 DD 7E B2      [19]  551 	ld	a, -78 (ix)
+   0349 77            [ 7]  552 	ld	(hl), a
+                            553 ;src/text/text.c:171: colorchar[pos+FONT2_W]=color2;
+   034A DD 7E EB      [19]  554 	ld	a, -21 (ix)
+   034D 82            [ 4]  555 	add	a, d
+   034E 5F            [ 4]  556 	ld	e, a
+   034F DD 7E EC      [19]  557 	ld	a, -20 (ix)
+   0352 CE 00         [ 7]  558 	adc	a, #0x00
+   0354 57            [ 4]  559 	ld	d, a
+   0355 DD 7E B2      [19]  560 	ld	a, -78 (ix)
+   0358 12            [ 7]  561 	ld	(de), a
+   0359 18 67         [12]  562 	jr	00163$
+   035B                     563 00135$:
+                            564 ;src/text/text.c:173: else if(*pChar == 0xdd) {
+   035B DD 7E DF      [19]  565 	ld	a, -33 (ix)
+   035E B7            [ 4]  566 	or	a, a
+   035F 28 20         [12]  567 	jr	Z,00132$
+                            568 ;src/text/text.c:174: colorchar[pos]=color3;
+   0361 DD 7E ED      [19]  569 	ld	a, -19 (ix)
+   0364 85            [ 4]  570 	add	a, l
+   0365 6F            [ 4]  571 	ld	l, a
+   0366 DD 7E EE      [19]  572 	ld	a, -18 (ix)
+   0369 CE 00         [ 7]  573 	adc	a, #0x00
+   036B 67            [ 4]  574 	ld	h, a
+   036C DD 7E B3      [19]  575 	ld	a, -77 (ix)
+   036F 77            [ 7]  576 	ld	(hl), a
+                            577 ;src/text/text.c:175: colorchar[pos+FONT2_W]=color3;
+   0370 DD 7E ED      [19]  578 	ld	a, -19 (ix)
+   0373 82            [ 4]  579 	add	a, d
+   0374 5F            [ 4]  580 	ld	e, a
+   0375 DD 7E EE      [19]  581 	ld	a, -18 (ix)
+   0378 CE 00         [ 7]  582 	adc	a, #0x00
+   037A 57            [ 4]  583 	ld	d, a
+   037B DD 7E B3      [19]  584 	ld	a, -77 (ix)
+   037E 12            [ 7]  585 	ld	(de), a
+   037F 18 41         [12]  586 	jr	00163$
+   0381                     587 00132$:
+                            588 ;src/text/text.c:177: else if(*pChar == 0xff) {
+   0381 DD 7E DE      [19]  589 	ld	a, -34 (ix)
+   0384 B7            [ 4]  590 	or	a, a
+   0385 28 20         [12]  591 	jr	Z,00129$
+                            592 ;src/text/text.c:178: colorchar[pos]=color4;
+   0387 DD 7E F1      [19]  593 	ld	a, -15 (ix)
+   038A 85            [ 4]  594 	add	a, l
+   038B 6F            [ 4]  595 	ld	l, a
+   038C DD 7E F2      [19]  596 	ld	a, -14 (ix)
+   038F CE 00         [ 7]  597 	adc	a, #0x00
+   0391 67            [ 4]  598 	ld	h, a
+   0392 DD 7E B4      [19]  599 	ld	a, -76 (ix)
+   0395 77            [ 7]  600 	ld	(hl), a
+                            601 ;src/text/text.c:179: colorchar[pos+FONT2_W]=color4;
+   0396 DD 7E F1      [19]  602 	ld	a, -15 (ix)
+   0399 82            [ 4]  603 	add	a, d
+   039A 5F            [ 4]  604 	ld	e, a
+   039B DD 7E F2      [19]  605 	ld	a, -14 (ix)
+   039E CE 00         [ 7]  606 	adc	a, #0x00
+   03A0 57            [ 4]  607 	ld	d, a
+   03A1 DD 7E B4      [19]  608 	ld	a, -76 (ix)
+   03A4 12            [ 7]  609 	ld	(de), a
+   03A5 18 1B         [12]  610 	jr	00163$
+   03A7                     611 00129$:
+                            612 ;src/text/text.c:182: colorchar[pos]=*pChar;
+   03A7 DD 7E F3      [19]  613 	ld	a, -13 (ix)
+   03AA 85            [ 4]  614 	add	a, l
+   03AB 6F            [ 4]  615 	ld	l, a
+   03AC DD 7E F4      [19]  616 	ld	a, -12 (ix)
+   03AF CE 00         [ 7]  617 	adc	a, #0x00
+   03B1 67            [ 4]  618 	ld	h, a
+   03B2 73            [ 7]  619 	ld	(hl), e
+                            620 ;src/text/text.c:183: colorchar[pos+FONT2_W]=*pChar;
+   03B3 DD 7E F3      [19]  621 	ld	a, -13 (ix)
+   03B6 82            [ 4]  622 	add	a, d
+   03B7 5F            [ 4]  623 	ld	e, a
+   03B8 DD 7E F4      [19]  624 	ld	a, -12 (ix)
+   03BB CE 00         [ 7]  625 	adc	a, #0x00
+   03BD 57            [ 4]  626 	ld	d, a
+   03BE E1            [10]  627 	pop	hl
+   03BF E5            [11]  628 	push	hl
+   03C0 7E            [ 7]  629 	ld	a, (hl)
+   03C1 12            [ 7]  630 	ld	(de), a
+   03C2                     631 00163$:
+                            632 ;src/text/text.c:149: for(i=0;i<18;i++){
+   03C2 DD 34 B0      [23]  633 	inc	-80 (ix)
+   03C5 DD 7E B0      [19]  634 	ld	a, -80 (ix)
+   03C8 D6 12         [ 7]  635 	sub	a, #0x12
+   03CA DAr2Ar02      [10]  636 	jp	C, 00162$
+                            637 ;src/text/text.c:192: pvideo = cpct_getScreenPtr(CPCT_VMEM_START, xPos, yPos);
+   03CD DD 66 07      [19]  638 	ld	h, 7 (ix)
+   03D0 DD 6E 06      [19]  639 	ld	l, 6 (ix)
+   03D3 E5            [11]  640 	push	hl
+   03D4 21 00 C0      [10]  641 	ld	hl, #0xc000
+   03D7 E5            [11]  642 	push	hl
+   03D8 CDr00r00      [17]  643 	call	_cpct_getScreenPtr
+                            644 ;src/text/text.c:193: if(transparent) cpct_drawSpriteMaskedAlignedTable(colorchar, pvideo, FONT2_W, FONT2_H*size, g_tablatrans);
+   03DB DD 75 DC      [19]  645 	ld	-36 (ix), l
+   03DE DD 74 DD      [19]  646 	ld	-35 (ix), h
+   03E1 DD 7E 0A      [19]  647 	ld	a, 10 (ix)
+   03E4 B7            [ 4]  648 	or	a, a
+   03E5 28 1D         [12]  649 	jr	Z,00145$
+   03E7 11r00r00      [10]  650 	ld	de, #_g_tablatrans
+   03EA DD 4E E2      [19]  651 	ld	c,-30 (ix)
+   03ED DD 46 E3      [19]  652 	ld	b,-29 (ix)
+   03F0 D5            [11]  653 	push	de
+   03F1 DD 56 E4      [19]  654 	ld	d, -28 (ix)
+   03F4 1E 02         [ 7]  655 	ld	e,#0x02
+   03F6 D5            [11]  656 	push	de
+   03F7 DD 6E DC      [19]  657 	ld	l,-36 (ix)
+   03FA DD 66 DD      [19]  658 	ld	h,-35 (ix)
+   03FD E5            [11]  659 	push	hl
+   03FE C5            [11]  660 	push	bc
+   03FF CDr00r00      [17]  661 	call	_cpct_drawSpriteMaskedAlignedTable
+   0402 18 23         [12]  662 	jr	00146$
+   0404                     663 00145$:
+                            664 ;src/text/text.c:194: else cpct_drawSprite (colorchar, pvideo, FONT2_W, FONT2_H*size);
+   0404 DD 7E F9      [19]  665 	ld	a, -7 (ix)
+   0407 DD 77 DA      [19]  666 	ld	-38 (ix), a
+   040A DD 7E FA      [19]  667 	ld	a, -6 (ix)
+   040D DD 77 DB      [19]  668 	ld	-37 (ix), a
+   0410 DD 56 FB      [19]  669 	ld	d, -5 (ix)
+   0413 1E 02         [ 7]  670 	ld	e,#0x02
+   0415 D5            [11]  671 	push	de
+   0416 DD 6E DC      [19]  672 	ld	l,-36 (ix)
+   0419 DD 66 DD      [19]  673 	ld	h,-35 (ix)
+   041C E5            [11]  674 	push	hl
+   041D DD 6E DA      [19]  675 	ld	l,-38 (ix)
+   0420 DD 66 DB      [19]  676 	ld	h,-37 (ix)
+   0423 E5            [11]  677 	push	hl
+   0424 CDr00r00      [17]  678 	call	_cpct_drawSprite
+   0427                     679 00146$:
+                            680 ;src/text/text.c:197: if(character == 48 || character == 60 || character == 57) xPos--;
+   0427 DD 7E D9      [19]  681 	ld	a, -39 (ix)
+   042A D6 30         [ 7]  682 	sub	a, #0x30
+   042C 28 0E         [12]  683 	jr	Z,00147$
+   042E DD 7E D9      [19]  684 	ld	a, -39 (ix)
+   0431 D6 3C         [ 7]  685 	sub	a, #0x3c
+   0433 28 07         [12]  686 	jr	Z,00147$
+   0435 DD 7E D9      [19]  687 	ld	a, -39 (ix)
+   0438 D6 39         [ 7]  688 	sub	a, #0x39
+   043A 20 03         [12]  689 	jr	NZ,00152$
+   043C                     690 00147$:
+   043C DD 35 06      [23]  691 	dec	6 (ix)
+   043F                     692 00152$:
+                            693 ;src/text/text.c:200: character = text[++x];
+   043F DD 34 AF      [23]  694 	inc	-81 (ix)
+   0442 DD 7E EF      [19]  695 	ld	a, -17 (ix)
+   0445 DD 86 AF      [19]  696 	add	a, -81 (ix)
+   0448 6F            [ 4]  697 	ld	l, a
+   0449 DD 7E F0      [19]  698 	ld	a, -16 (ix)
+   044C CE 00         [ 7]  699 	adc	a, #0x00
+   044E 67            [ 4]  700 	ld	h, a
+   044F 7E            [ 7]  701 	ld	a, (hl)
+   0450 DD 77 FF      [19]  702 	ld	-1 (ix), a
+                            703 ;src/text/text.c:201: xPos+=FONT2_W;
+   0453 DD 34 06      [23]  704 	inc	6 (ix)
+   0456 DD 34 06      [23]  705 	inc	6 (ix)
+   0459 C3r56r01      [10]  706 	jp	00159$
+   045C                     707 00164$:
+   045C DD F9         [10]  708 	ld	sp, ix
+   045E DD E1         [14]  709 	pop	ix
+   0460 C9            [10]  710 	ret
+                            711 	.area _CODE
+                            712 	.area _INITIALIZER
+                            713 	.area _CABS (ABS)

@@ -45,7 +45,6 @@ u32 i_time;
 // ********************************************************************************
 void myInterruptHandler()
 {
-
     i_time++;
 
     if (++g_nInterrupt == 6)
@@ -59,8 +58,8 @@ void eraseCharacter(TCharacter *c){
     u8* pvmem;
     u8 x,y;
     //Normalize coordinates
-    x=c->px/256;
-    y=c->py/256;
+    x=c->px >> 8;
+    y=c->py >> 8;
     //Erase character
     pvmem = cpct_getScreenPtr(CPCT_VMEM_START, x, y);
     cpct_drawSolidBox (pvmem, cpct_px2byteM0 (0, 0), CH_WIDTH, CH_HEIGHT);
@@ -119,15 +118,15 @@ void printWayPoints(){
 void eraseDebugInfo(){
     u8 *pvmem;
     pvmem = cpct_getScreenPtr(CPCT_VMEM_START, 50, 0);
-    cpct_drawSolidBox (pvmem, cpct_px2byteM0 (0, 0), 29, 64);    
+    cpct_drawSolidBox (pvmem, cpct_px2byteM0 (0, 0), 29, 80);    
 }
 
 void printDebugInfo(TCharacter *c){
     char auxTxt[20];
     
-    sprintf(auxTxt, "X %1d", c->x);
+    sprintf(auxTxt, "X %1d", c->x >> 8);
     drawText(auxTxt, 50, 0, COLORTXT_BLUE, NORMALHEIGHT, TRANSPARENT);
-    sprintf(auxTxt, "Y %1d", c->y);
+    sprintf(auxTxt, "Y %1d", c->y >> 8);
     drawText(auxTxt, 50, 8, COLORTXT_BLUE, NORMALHEIGHT, TRANSPARENT);  
     sprintf(auxTxt, "DIR %1d", c->dir);
     drawText(auxTxt, 50, 16, COLORTXT_BLUE, NORMALHEIGHT, TRANSPARENT);  
@@ -139,6 +138,10 @@ void printDebugInfo(TCharacter *c){
     drawText(auxTxt, 50, 40, COLORTXT_BLUE, NORMALHEIGHT, TRANSPARENT);
     sprintf(auxTxt, "T %1d", c->target);
     drawText(auxTxt, 50, 48, COLORTXT_BLUE, NORMALHEIGHT, TRANSPARENT);
+    sprintf(auxTxt, "TX %1d", wp[c->target].x);
+    drawText(auxTxt, 50, 56, COLORTXT_BLUE, NORMALHEIGHT, TRANSPARENT);
+    sprintf(auxTxt, "TY %1d", wp[c->target].y);
+    drawText(auxTxt, 50, 64, COLORTXT_BLUE, NORMALHEIGHT, TRANSPARENT);
     wait4OneKey();
     eraseDebugInfo();
 }
@@ -183,10 +186,9 @@ void motionUpdate(TCharacter *c){
     yc = c->y >> 8;
 
    
-    if (abs((xc - wp[c->target].x) < 2) && (abs((yc - wp[c->target].y) < 2))){
+    if ((abs(xc - wp[c->target].x) < 2) && (abs(yc - wp[c->target].y) < 2)){
         //waypoint reached
         c->target = ((c->target+1) % WP_NUMBER);
-        printDebugInfo(c);
     }
     xwp = wp[c->target].x;
     ywp = wp[c->target].y;
@@ -276,7 +278,7 @@ void main(void) {
    // Loop forever
    while (1){    
 
-        cpct_waitHalts(100);
+        cpct_waitHalts(5);
         getCharacterInput(&c);
         updateCharacter(&c);
         eraseCharacter(&c);

@@ -1,6 +1,6 @@
                               1 ;--------------------------------------------------------
                               2 ; File Created by SDCC : free open source ANSI-C Compiler
-                              3 ; Version 3.6.8 #9946 (Linux)
+                              3 ; Version 3.6.8 #9946 (Mac OS X x86_64)
                               4 ;--------------------------------------------------------
                               5 	.module util
                               6 	.optsdcc -mz80
@@ -45,21 +45,21 @@
                              45 ;	---------------------------------
                              46 ; Function wait4OneKey
                              47 ; ---------------------------------
-   0C38                      48 _wait4OneKey::
+   04DE                      48 _wait4OneKey::
                              49 ;src/util/util.c:14: while (cpct_isAnyKeyPressed());
-   0C38                      50 00101$:
-   0C38 CD 21 0E      [17]   51 	call	_cpct_isAnyKeyPressed
-   0C3B 7D            [ 4]   52 	ld	a, l
-   0C3C B7            [ 4]   53 	or	a, a
-   0C3D 20 F9         [12]   54 	jr	NZ,00101$
+   04DE                      50 00101$:
+   04DE CD 1C 0E      [17]   51 	call	_cpct_isAnyKeyPressed
+   04E1 7D            [ 4]   52 	ld	a, l
+   04E2 B7            [ 4]   53 	or	a, a
+   04E3 20 F9         [12]   54 	jr	NZ,00101$
                              55 ;src/util/util.c:17: while (!cpct_isAnyKeyPressed());
-   0C3F                      56 00104$:
-   0C3F CD 21 0E      [17]   57 	call	_cpct_isAnyKeyPressed
-   0C42 7D            [ 4]   58 	ld	a, l
-   0C43 B7            [ 4]   59 	or	a, a
-   0C44 28 F9         [12]   60 	jr	Z,00104$
+   04E5                      56 00104$:
+   04E5 CD 1C 0E      [17]   57 	call	_cpct_isAnyKeyPressed
+   04E8 7D            [ 4]   58 	ld	a, l
+   04E9 B7            [ 4]   59 	or	a, a
+   04EA 28 F9         [12]   60 	jr	Z,00104$
                              61 ;src/util/util.c:19: return;
-   0C46 C9            [10]   62 	ret
+   04EC C9            [10]   62 	ret
                              63 	.area _CODE
                              64 	.area _INITIALIZER
                              65 	.area _CABS (ABS)
