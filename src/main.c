@@ -29,7 +29,6 @@ const TWaypoint wp[WP_NUMBER] = {{1,1}, {10,100}, {40,180}, {70,100}};
 cpctm_createTransparentMaskTable(g_tablatrans, 0x200, M0, 0);
 
 //Global Variables
-u8 pause;
 u8 g_nInterrupt; // Manage Interrupt
 u32 i_time;
 
@@ -49,7 +48,7 @@ void myInterruptHandler()
 
     if (++g_nInterrupt == 6)
     {
-        cpct_scanKeyboard_f();
+        cpct_scanKeyboard();
         g_nInterrupt = 0;
     }
 }
@@ -189,6 +188,7 @@ void motionUpdate(TCharacter *c){
     if ((abs(xc - wp[c->target].x) < 2) && (abs(yc - wp[c->target].y) < 2)){
         //waypoint reached
         c->target = ((c->target+1) % WP_NUMBER);
+        wait4OneKey();
     }
     xwp = wp[c->target].x;
     ywp = wp[c->target].y;
@@ -262,19 +262,30 @@ void init(TCharacter *c){
     c->target = 0;
       
     printWayPoints();
-    
-    pause = 0;
 }
 
 
 void main(void) {
     // Local Variables
     TCharacter c;
+    u16 aux;
+    char auxTxt[20];
     
     init(&c);
 
     printCharacter(&c);
 
+    aux = get_multi(4, 2);
+    sprintf(auxTxt, "%1d", aux);
+    drawText(auxTxt, 0, 170, COLORTXT_BLUE, NORMALHEIGHT, TRANSPARENT);
+    aux = get_multi(4, 2);
+    sprintf(auxTxt, "%1d", aux);
+    drawText(auxTxt, 0, 180, COLORTXT_BLUE, NORMALHEIGHT, TRANSPARENT);
+    aux = get_multi(4, 2);
+    sprintf(auxTxt, "%1d", aux);
+    drawText(auxTxt, 0, 190, COLORTXT_BLUE, NORMALHEIGHT, TRANSPARENT);
+    
+    
    // Loop forever
    while (1){    
 

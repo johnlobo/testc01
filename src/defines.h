@@ -4,6 +4,7 @@
 //Global defines
 #define DIR_STEP 1.4
 #define SCALE_FACTOR 256
+#define MAX_SPEED 3
 //Character DATA
 #define CH_COLOR 3
 #define CH_WIDTH 6
