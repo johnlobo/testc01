@@ -15,25 +15,57 @@ _reset_cpc::
 	ret
 
 ;***********************************
+; Absolute
+; INPUT:
+;	HL:	NUMBER
+; OUTPUT:
+;	HL: Result
+; DESTROYS
+;	AF, BC, DE, HL
+;
+; Code from z80 heaven http://z80-heaven.wikidot.com/
+;***********************************
+.globl _get_abs
+_get_abs::
+	;; Get Parameters from stack
+	ld hl,#2
+	add hl,sp
+	ld e, (hl)				;get the first digit of the number in e
+	inc hl					;advance in the stack
+	ld d, (hl)				;get the second digit of the number in d
+	ex de, hl				;interchange de and hl, to get the number in hl
+absHL:
+     bit 7,h				;check last bit of number to get the sign
+     ret z					; if positive then return 
+     xor a
+	 sub l
+	 ld l,a
+     sbc a,a
+	 sub h
+	 ld h,a
+     ret
+
+;***********************************
 ; Multiplication
+; INPUT:
+;	H: 	First factor
+;	L:	Second factor
+; OUTPUT:
+;	HL: Result
+; DESTROYS
+;	AF, BC, DE, HL
+; Code from
+; https://chuntey.wordpress.com/category/z80-assembly/
 ;***********************************
 .globl _get_multi
 _get_multi::
-	;; Get Parameters from stack
-   	;;pop  af   	;; [3] AF = Return Address
-   	;;pop  hl   	;; [3] H = first multiplier, L = second multiplier
-   	;;push af   	;; [4] Put returning address in the stack again as this function uses __z88dk_callee convention
-	;;ld d,l		;; Set d as second multiplier
-	
-	ld ix,#2
-	add ix,sp
-	
-	ld h,0 (ix)				;recupero la coordenada x1
-	ld d,1 (ix)				;recupero la coordenada x1
-	
-	call imul
-	
-	ret
+		;; Get Parameters from stack
+		ld hl,#2
+		add hl,sp
+		ld e, (hl)				;recupero el primer factor
+		inc hl					;Avanzo en la pila
+		ld d, (hl)				;recupero el segundo factor
+		ld h, e					;coloco el primer factor en h que es donode lo necesita la rutina
 
 imul:  ld e,d              ; HL = H * D
        ld a,h              ; make accumulator first multiplier.
@@ -49,136 +81,146 @@ imul2:  rl e                ; shift de 1 bit left.
        djnz imul1          ; repeat 8 times.
        ret
 	   
- ;***********************************
- ; Division
- ;***********************************
+;***********************************
+; Division
+; INPUT:
+;	HL:	Dividend
+;	D:	Divisor
+; OUTPUT:
+;	HL: Result
+; DESTROYS
+;	AF, BC, DE, HL
+;
+; Code from
+; https://chuntey.wordpress.com/category/z80-assembly/
 .globl _get_divi
 _get_divi::
 	;; Get Parameters from stack
-   ;;	pop af   	;; [3] AF = Return Address
-   ;;	pop hl   	;; [3] HL = Dividend
-	;;pop bc		;; [3] DE = Divisor
-   ;;	push af   	;; [4] Put returning address in the stack again as this function uses __z88dk_callee convention
-	;;ld d,e		;; Set d as divisor
+	ld hl,#2
+	add hl,sp
 	
-	push af
-	push bc
-	push ix
+	ld e, (hl)
+	inc hl				
+	ld d, (hl)
+	inc hl		
+	ld c, (hl)
+	ex de, hl
+	ld d, c
 	
-	ld ix,#2
-	add ix,sp
-	
-	ld l,0 (ix)				;recupero la coordenada x1
-	ld h,1 (ix)				;recupero la coordenada x1
-	ld a,2 (ix)				;recupero el ancho 1
-	ld c,a
-	
-	call div
-	
-	pop ix
-	pop bc
-	pop af
+	call idiv
 	
 	ret
  
  ; Divide hl by d and return in hl.
 
-;;idiv:   xor a               ; HL = HL / D
-;;       ld c,a              ; zeroise c.
-;;       ld e,a              ; zeroise e.
-;;       call idiv4
-;;       push af
-;;       xor a
-;;       ld c,a
-;;       ld d,a
-;;       call idiv4
-;;       pop hl
-;;       ld l,h
-;;       ld h,a
-;;       ret
-;;idiv4:  ld b, #8
-;;idiv1:  rr d
-;;       rr e
-;;       rr c
-;;       ex af,af'           ; store flag.
-;;       xor a               ; zeroise accumulator.
-;;       cp c                ; is c zero?
-;;       jr z,idiv2          ; yes.
-;;       ex af,af'           ; restore flags.
-;;idiv3:  rla                 ; rotate into right of accumulator.
-;;       and a               ; reset carry.
-;;       djnz idiv1          ; repeat 8 times.
-;;       ret
-;;idiv2:  ex af,af'
-;;       ld (mtbuff),hl
-;;       sbc hl,de
-;;       ccf
-;;       jr c,idiv3
-;;       ld hl,(mtbuff)
-;;       jp idiv3
+idiv:  xor a               ; HL = HL / D
+       ld c,a              ; zeroise c.
+       ld e,a              ; zeroise e.
+       call idiv4
+       push af
+       xor a
+       ld c,a
+       ld d,a
+       call idiv4
+       pop hl
+       ld l,h
+       ld h,a
+       ret
+idiv4: ld b, #8
+idiv1: rr d
+       rr e
+       rr c
+       ex af,af'           ; store flag.
+       xor a               ; zeroise accumulator.
+       cp c                ; is c zero?
+       jr z,idiv2          ; yes.
+       ex af,af'           ; restore flags.
+idiv3: rla                 ; rotate into right of accumulator.
+       and a               ; reset carry.
+       djnz idiv1          ; repeat 8 times.
+       ret
+idiv2: ex af,af'
+       ld (mtbuff),hl
+       sbc hl,de
+       ccf
+       jr c,idiv3
+       ld hl,(mtbuff)
+       jp idiv3
 	   
-	   
-div:     	ld b,#16
-       		xor a
-div_loop:	add hl,hl
-         	rla
-         	cp c
-         	jr c, div_end
-         	inc l
-         	sub c
-div_end: 	djnz div_loop
-       		ret
+;; Divides HL / C	   
+;;div:     	ld b,#16
+;;       		xor a
+;;div_loop:	add hl,hl
+;;         	rla
+;;         	cp c
+;;         	jr c, div_end
+;;         	inc l
+;;         	sub c
+;;div_end: 	djnz div_loop
+;;       		ret
         
- ;***********************************
-;; ; Raiz cuadrada
-;; ;***********************************
-;; .globl _get_sqrt
-;; _get_sqrt::
-;;     push ix                ; save ix in the stack
-;;     
-;;     ld ix,#4                ; move ix to the stack pointer position plus the return address
-;; 	add ix,sp
-;; 	
-;; 	ld a,0 (ix)				;recupero la coordenada x1
-;; 	ld h,a
-;;     
-;; isqr:   ld (sqbuf0),hl      ; number for which we want to find square root.
-;;        xor a               ; zeroise accumulator.
-;;        ld (sqbuf2),a       ; result buffer.
-;;        ld a, #128            ; start division with highest bit.
-;;        ld (sqbuf1),a       ; next divisor.
-;;        ld b,#8              ; 8 bits to divide.
-;; isqr1:  push bc             ; store loop counter.
-;;        ld a,(sqbuf2)       ; current result.
-;;        ld d,a
-;;        ld a,(sqbuf1)       ; next bit to check.
-;;        or d                ; combine with divisor.
-;;        ld d,a              ; store low byte.
-;;        xor a               ; HL = HL / D
-;;        ld c,a              ; zeroise c.
-;;        ld e,a              ; zeroise e.
-;;        push de             ; remember divisor.
-;;        ld hl,(sqbuf0)      ; original number.
-;;        call idiv4          ; divide number by d.
-;;        pop de              ; restore divisor.
-;;        cp d                ; is divisor greater than result?
-;;        jr c,isqr0          ; yes, don't store this bit then.
-;;        ld a,d
-;;        ld (sqbuf2),a       ; store new divisor.
-;; isqr0:  ld hl,sqbuf1        ; bit we tested.
-;;        and a               ; clear carry flag.
-;;        rr (hl)             ; next bit to right.
-;;        pop bc              ; restore loop counter.
-;;        djnz isqr1          ; repeat
-;;        ld a,(sqbuf2)       ; return result in hl.
-;;        
-;;        pop ix
-;;        
-;;        ret
+;***********************************
+; Square root
+; INPUT:
+;	HL:	Number to find the sqrt
+; OUTPUT:
+;	HL: Result
+; DESTROYS
+;	AF, BC, DE, HL
+;
+; Code from
+; https://chuntey.wordpress.com/category/z80-assembly/
+.globl _get_sqrt
+_get_sqrt::
+	;; Get Parameters from stack
+	ld hl,#2
+	add hl,sp
+	ld e, (hl)				;recupero el primer factor
+	inc hl					;Avanzo en la pila
+	ld d, (hl)				;recupero el segundo factor
+	ex de, hl
+	call isqr				;llamo a la rutina de multiplicación
+	ret
+     
+ isqr:   ld (sqbuf0),hl      ; number for which we want to find square root.
+        xor a               ; zeroise accumulator.
+        ld (sqbuf2),a       ; result buffer.
+        ld a, #128            ; start division with highest bit.
+        ld (sqbuf1),a       ; next divisor.
+        ld b,#8              ; 8 bits to divide.
+ isqr1:  push bc             ; store loop counter.
+        ld a,(sqbuf2)       ; current result.
+        ld d,a
+        ld a,(sqbuf1)       ; next bit to check.
+        or d                ; combine with divisor.
+        ld d,a              ; store low byte.
+        xor a               ; HL = HL / D
+        ld c,a              ; zeroise c.
+        ld e,a              ; zeroise e.
+        push de             ; remember divisor.
+        ld hl,(sqbuf0)      ; original number.
+        call idiv4          ; divide number by d.
+        pop de              ; restore divisor.
+        cp d                ; is divisor greater than result?
+        jr c,isqr0          ; yes, don't store this bit then.
+        ld a,d
+        ld (sqbuf2),a       ; store new divisor.
+ isqr0: ld hl, #sqbuf1        ; bit we tested.
+        and a               ; clear carry flag.
+        rr (hl)             ; next bit to right.
+        pop bc              ; restore loop counter.
+        djnz isqr1          ; repeat
+        ld a,(sqbuf2)       ; return result in hl.
+        
+        pop ix
+        
+        ret
 mtbuff: .dw 0
 sqbuf0: .dw 0
 sqbuf1: .db 0
 sqbuf2: .db 0
+
+
 ;; ;***********************************
 ;; ; Angulo
 ;; ;***********************************
@@ -275,28 +317,68 @@ sqbuf2: .db 0
 ;;        ret                 ; job's a good 'un!
 ;; 
 ;; 
-;; ;***********************************
-;; ; Cosine
-;; ;***********************************
-;; ; Get cosine of angle passed in the accumulator, and return in de pair.
-;; 
-;; cos:    add a,64            ; DE = cosine A.
-;; ;***********************************
-;; ; Sine
-;; ;***********************************
-;; ; Find sine of angle in accumulator, return in de registers.
-;; 
-;; sin:    ld hl,sine          ; DE = sine A.
-;;        ld d,#0              ; zeroise high byte.
-;;        and a               ; clear carry flag.
-;;        rla                 ; multiply accumulator by 2.
-;;        rl d                ; shift top bit into high byte.
-;;        ld e,a              ; put remainder in low byte.
-;;        add hl,de           ; add displacement to start of table.
-;;        ld e,(hl)           ; get low value of sine value.
-;;        inc hl              ; njext byte along.
-;;        ld d,(hl)           ; fetch high byte.
-;;        ret
+
+;***********************************
+; Sine
+; INPUT:
+;	A:	ANGLE
+; OUTPUT:
+;	DE: Result
+; DESTROYS
+;	AF, BC, DE, HL
+;
+; Code from
+; https://chuntey.wordpress.com/category/z80-assembly/
+;***********************************
+.globl _get_sin
+_get_sin::
+	;; Get Parameters from stack
+	ld hl,#2
+	add hl,sp
+	ld a, (hl)				;get the angle in accumulator
+	jr sine					;jump to the sin function
+
+;***********************************
+; Cosine
+; INPUT:
+;	A:	ANGLE
+; OUTPUT:
+;	DE: Result
+; DESTROYS
+;	AF, BC, DE, HL
+;
+; Code from
+; https://chuntey.wordpress.com/category/z80-assembly/
+;***********************************
+.globl _get_cos
+_get_cos::
+	;; Get Parameters from stack
+	ld hl,#2
+	add hl,sp
+	ld a, (hl)				;get the angle in accumulator
+
+ ;***********************************
+ ; Cosine
+ ;***********************************
+ ; Get cosine of angle passed in the accumulator, and return in de pair.
+ 
+ cos:    add a, #64            ; DE = cosine A.
+ ;***********************************
+ ; Sine
+ ;***********************************
+ ; Find sine of angle in accumulator, return in de registers.
+ 
+ sin:   ld hl, #sine        ; DE = sine A.
+        ld d,#0             ; zeroise high byte.
+        and a               ; clear carry flag.
+        rla                 ; multiply accumulator by 2.
+        rl d                ; shift top bit into high byte.
+        ld e,a              ; put remainder in low byte.
+        add hl,de           ; add displacement to start of table.
+        ld e,(hl)           ; get low value of sine value.
+        inc hl              ; njext byte along.
+        ld d,(hl)           ; fetch high byte.
+        ret
 ;; 
 ;; ;***********************************
 ;; ; ArcSine
@@ -330,38 +412,48 @@ sqbuf2: .db 0
 ;; 
 ;; 
 
-sine:  .db 1,1,1,1,1,1,1,1,255,0,255,0,255,0,253,0
-       .db 253,0,251,0,249,0,247,0,245,0,245,0,243,0,239,0
-       .db 237,0,235,0,233,0,229,0,227,0,223,0,221,0,217,0
-       .db 213,0,211,0,207,0,203,0,199,0,195,0,191,0,187,0
-       .db 183,0,177,0,173,0,169,0,163,0,159,0,153,0,149,0
-       .db 143,0,137,0,133,0,127,0,121,0,117,0,111,0,105,0
-       .db 99,0,93,0,87,0,81,0,75,0,69,0,63,0,57,0
-       .db 51,0,45,0,39,0,33,0,27,0,19,0,13,0,7,0
 
-       .db 0,0,6,0,12,0,18,0,24,0,32,0,38,0,44,0
-       .db 50,0,56,0,62,0,68,0,74,0,80,0,86,0,92,0
-       .db 98,0,102,0,108,0,114,0,120,0,126,0,130,0,136,0
-       .db 142,0,146,0,152,0,156,0,162,0,166,0,170,0,176,0
-       .db 180,0,184,0,188,0,192,0,196,0,200,0,204,0,208,0
-       .db 212,0,216,0,218,0,222,0,224,0,228,0,230,0,234,0
-       .db 236,0,238,0,240,0,242,0,244,0,246,0,248,0,248,0
-       .db 250,0,252,0,252,0,254,0,254,0,254,0,254,0,254,0
+sine:		
+		cp #64
+		jp c, get_sine_from_table
+		cp #128
+		jp c, minus_180
+		cp #192
+		jp c, minus_270
 
-       .db 0,1,254,0,254,0,254,0,254,0,254,0,252,0,252,0
-       .db 250,0,248,0,248,0,246,0,244,0,242,0,240,0,238,0
-       .db 236,0,234,0,230,0,228,0,224,0,222,0,218,0,216,0
-       .db 212,0,208,0,204,0,200,0,196,0,192,0,188,0,184,0
-       .db 180,0,176,0,170,0,166,0,162,0,156,0,152,0,146,0
-       .db 142,0,136,0,130,0,126,0,120,0,114,0,108,0,102,0
-       .db 96,0,92,0,86,0,80,0,74,0,68,0,62,0,56,0
-       .db 48,0,42,0,36,0,30,0,24,0,18,0,12,0,6,0
+minus_180:	
+		ld d, a
+		ld a, 180
+		sub d
+		jr get_sine_from_table
 
-arcsin: .db 0,0,7,0,13,0,19,0,27,0,33,0,39,0,45,0
-       	.db 51,0,57,0,63,0,69,0,75,0,81,0,87,0,93,0
-       	.db 99,0,105,0,111,0,117,0,121,0,127,0,133,0,137,0
-       	.db 143,0,149,0,153,0,159,0,163,0,169,0,173,0,177,0
-       	.db 183,0,187,0,191,0,195,0,199,0,203,0,207,0,211,0
-       	.db 213,0,217,0,221,0,223,0,227,0,229,0,233,0,235,0
-       	.db 237,0,239,0,243,0,245,0,245,0,247,0,249,0,251,0
-       	.db 253,0,253,0,255,0,255,0,255,0,1,1,1,1,1,1
+minus_270:	ld d, a
+		ld a, 180
+		sub d
+		call get_sine_from_table
+		set 7, d
+		ret
+
+get_sine_from_table:	
+		ld hl, sine_table   ; DE = sine A.
+        ld d,#0             ; zeroise high byte.
+		and a               ; clear carry flag.
+        rla                 ; multiply accumulator by 2.
+        rl d                ; shift top bit into high byte.
+        ld e,a              ; put remainder in low byte.
+        add hl,de           ; add displacement to start of table.
+        ld e,(hl)           ; get low value of sine value.
+        inc hl              ; njext byte along.
+        ld d,(hl)           ; fetch high byte.
+        ret
+
+sine_table:
+	dw   0,   4,   9,  13,  18,  22,  27,  31,  36,  40,  44
+	dw  49,  53,  58,  62,  66,  71,  75,  79,  83,  88
+	dw  92,  96, 100, 104, 108, 112, 116, 120, 124, 128
+	dw 132, 136, 139, 143, 147, 150, 154, 158, 161, 165
+	dw 168, 171, 175, 178, 181, 184, 187, 190, 193, 196
+	dw 199, 202, 204, 207, 210, 212, 215, 217, 219, 222
+	dw 224, 226, 228, 230, 232, 234, 236, 237, 239, 241
+	dw 242, 243, 245, 246, 247, 248, 249, 250, 251, 252
+	dw 253, 254, 254, 255, 255, 255, 256, 256, 256, 256

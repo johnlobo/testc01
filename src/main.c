@@ -275,15 +275,17 @@ void main(void) {
 
     printCharacter(&c);
 
-    aux = get_multi(4, 2);
-    sprintf(auxTxt, "%1d", aux);
+    aux = get_sin(30);
+    sprintf(auxTxt, "get_sin 30 : %1d", aux);
     drawText(auxTxt, 0, 170, COLORTXT_BLUE, NORMALHEIGHT, TRANSPARENT);
-    aux = get_multi(4, 2);
-    sprintf(auxTxt, "%1d", aux);
+    wait4OneKey();
+    aux = sine(30);
+    sprintf(auxTxt, "sine 30 : %1d", aux);
     drawText(auxTxt, 0, 180, COLORTXT_BLUE, NORMALHEIGHT, TRANSPARENT);
-    aux = get_multi(4, 2);
-    sprintf(auxTxt, "%1d", aux);
-    drawText(auxTxt, 0, 190, COLORTXT_BLUE, NORMALHEIGHT, TRANSPARENT);
+    wait4OneKey();
+    //aux = get_sqrt(aux);
+    //sprintf(auxTxt, "sqrt %1d", aux);
+    //drawText(auxTxt, 0, 190, COLORTXT_BLUE, NORMALHEIGHT, TRANSPARENT);
     
     
    // Loop forever
